@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
         <%= image_tag("blooddonation.png", class: "navbar-logo header", alt: "BloodDonation Logo") %>
@@ -8,25 +8,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+        <li class="nav-item px-1">
+        <a class="btn rounded-0 navbar-home-text" href="/">Home</a>
+      </li>
+      <li class="nav-item px-1">
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/features' ? 'active' : '' %>" href="/">Plasama</a>
+      </li>
+      <li class="nav-item px-1">
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/teachers' ? 'active' : '' %>" href="/teachers">Why give blood</a>
+      </li>
+      <li class="nav-item px-1">
+        <a class="nav-link navbar-item navbar-text<%= request.path == '/blog' ? 'active' : '' %>" href="https://blog.circuitverse.org/">Who can give blood</a>
+      </li>
+      <li class="nav-item px-1">
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/about' ? 'active' : '' %>" href="/about">Donation process</a>
+      </li>
+      <li class="nav-item px-1">
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/about' ? 'active' : '' %>" href="/about">About</a>
+      </li>
+      <li class="nav-item px-1">
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/about' ? 'active' : '' %>" href="/about">Login</a>
+      </li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,80 @@
+@import 'bootstrap/dist/css/bootstrap';
+.header {
+    max-width: 100px;
+    max-height: 80px;
+}
+
+.navbar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .navbar-home-text {
+    border: 2px solid #ff5959;
+    color: #343a40;
+    font-weight: 500;
+    transition: all .3s ease-in;
+  
+    &:hover {
+      background: #ff5959;
+      color: white;
+    }
+  }
+  
+  .navbar-dropdown-toggle-hidden {
+    .dropdown-toggle::after {
+      display: none;
+    }
+  }
+  
+  .dropdown-toggle.navbar-user-dropdown {
+    cursor: pointer;
+  
+    &::after {
+      margin-left: 0;
+      padding-left: 0;
+      vertical-align: .5em;
+    }
+  }
+  
+  .dropdown-item {
+    &:hover {
+      background-color: #ff5959;
+      color: white;
+    }
+  }
+  
+  .navbar .navbar-nav .nav-link{
+    color: #343a40;
+    font-weight: 500;
+    }
+  
+  #navbar-dropdown-1,
+  #navbar-dropdown-2 {
+    &:hover {
+      color: #ff5959;
+    }
+  
+    &[aria-expanded="true"] {
+      color: #c21d1d;
+    }
+  
+    &:focus {
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+  .navbar .navbar-nav .nav-link:hover {
+    color: #ff5959;
+  }
+  .navbar .navbar-nav .nav-link:active {
+    color: #c21d1d;
+  }
+  .navbar .navbar-nav .nav-link:focus {
+    outline: none;
+    text-decoration: none;
+  }
+  //breakpoints
