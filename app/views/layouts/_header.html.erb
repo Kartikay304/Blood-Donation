@@ -11,23 +11,24 @@
         <li class="nav-item px-1">
         <a class="btn rounded-0 navbar-home-text" href="/">Home</a>
       </li>
+
       <li class="nav-item px-1">
-        <a class="nav-link navbar-item navbar-text <%= request.path == '/features' ? 'active' : '' %>" href="/">Plasama</a>
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/plasama' ? 'active' : '' %>" href="/plasama">Plasama</a>
       </li>
       <li class="nav-item px-1">
-        <a class="nav-link navbar-item navbar-text <%= request.path == '/teachers' ? 'active' : '' %>" href="/teachers">Why give blood</a>
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/why_give_blood' ? 'active' : '' %>" href="/why_give_blood">Why give blood</a>
       </li>
       <li class="nav-item px-1">
-        <a class="nav-link navbar-item navbar-text<%= request.path == '/blog' ? 'active' : '' %>" href="https://blog.circuitverse.org/">Who can give blood</a>
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/who_can_give_blood' ? 'active' : '' %>" href="/who_can_give_blood">Who can give blood</a>
       </li>
       <li class="nav-item px-1">
-        <a class="nav-link navbar-item navbar-text <%= request.path == '/about' ? 'active' : '' %>" href="/about">Donation process</a>
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/donation_process' ? 'active' : '' %>" href="/donation_process">Donation process</a>
       </li>
       <li class="nav-item px-1">
         <a class="nav-link navbar-item navbar-text <%= request.path == '/about' ? 'active' : '' %>" href="/about">About</a>
       </li>
       <li class="nav-item px-1">
-        <a class="nav-link navbar-item navbar-text <%= request.path == '/about' ? 'active' : '' %>" href="/about">Login</a>
+        <a class="nav-link navbar-item navbar-text <%= request.path == '/login' ? 'active' : '' %>" href="/login">Login</a>
       </li>
       </ul>
     </div>
