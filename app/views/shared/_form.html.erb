@@ -53,7 +53,7 @@
             </div>
             <br>
             <div class="text-center">
-                <%= f.submit class: "btn navbar-home-text btn-lg" %>
+                <%= f.submit (@user.new_record? ? "Sign Up" : "Update Account"), class: "btn navbar-home-text btn-lg" %>
             </div>
         <% end %>
         <div class="mb-3">

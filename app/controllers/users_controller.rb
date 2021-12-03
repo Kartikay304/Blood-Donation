@@ -1,7 +1,21 @@
 class UsersController < ApplicationController
 
-    def login
+    def signup
         @user = User.new
+    end
+
+    def edit
+        @user=User.find(params[:id])
+    end
+
+    def update
+        @user =User.find(params[:id])
+        if @user.update(user_params)
+            flash[:notice] = "Your account information as successfully updated"
+            redirect_to root_path
+        else
+            render 'edit'
+        end
     end
 
     def create
@@ -10,7 +24,7 @@ class UsersController < ApplicationController
             flash[:notice] = "Welcome #{@user.username} To GEHU Blood Donation Camp"
             redirect_to root_path
         else
-            render 'login'
+            render 'signup'
         end
     end
 
