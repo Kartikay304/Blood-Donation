@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get "/about", to: "blooddonation#about"
   
   #donor_signup
-  get "/donor/signup", to: "users#donor_signup"
-  resources :users, except: [:donor_signup]
+  get "/login", to: "users#login"
+  resources :users, except: [:login]
 end

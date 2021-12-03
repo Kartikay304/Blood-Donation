@@ -14,6 +14,10 @@ ActiveRecord::Schema.define(version: 2021_12_03_080714) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "blood_group"
+    t.integer "age"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
