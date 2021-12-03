@@ -67,6 +67,18 @@
       text-decoration: underline;
     }
   }
+
+  .navbar-username-truncate {
+    display: inline-block;
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .affix {
+    box-shadow: 0 8px 6px -6px #d5d5d5;
+  }
+
   .navbar .navbar-nav .nav-link:hover {
     color: #ff5959;
   }

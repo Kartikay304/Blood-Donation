@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get "/donation_process", to: "blooddonation#donation_process"
   get "/about", to: "blooddonation#about"
   
-  #donor_signup
-  get "/login", to: "users#signup"
+  #signup
+  get "/signup", to: "users#signup"
   resources :users, except: [:signup]
+
+  #signin
+  get 'login', to: 'sessions#signin'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
