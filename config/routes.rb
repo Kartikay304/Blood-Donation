@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get "/who_can_give_blood", to: "blooddonation#who_can_give_blood"
   get "/donation_process", to: "blooddonation#donation_process"
   get "/about", to: "blooddonation#about"
-
+  
+  #donor_signup
+  get "/donor/signup", to: "users#donor_signup"
+  resources :users, except: [:donor_signup]
 end
