@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#signin'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  #dashboard
+  get "/dashboard", to: "users#dashboard"
 end
