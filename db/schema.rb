@@ -16,8 +16,16 @@ ActiveRecord::Schema.define(version: 2021_12_03_080714) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
-    t.string "blood_group"
     t.integer "age"
+    t.string "blood_group"
+    t.string "gender"
+    t.string "street"
+    t.string "additional_info"
+    t.string "pin_code"
+    t.string "city"
+    t.string "country"
+    t.string "code"
+    t.integer "phone_no"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

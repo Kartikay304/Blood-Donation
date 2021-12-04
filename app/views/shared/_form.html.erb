@@ -24,10 +24,11 @@
                 </div>
             </div>
             <br>
-            <div class="form-group row">
+
+            <div class="form-group row ">
                 <%= f.label :blood_group, class: "col-2 col-form-label form-text" %>
                 <div class="col-10">
-                    <%= f.text_field :blood_group, class: "form-control shadow rounded form-text", placeholder:"Blood Group" %>
+                    <%= f.select :blood_group ,["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select A Blood Group"},{class: "rounded form-control shadow form-text form-select"} %>
                 </div>
             </div>
             <br>
@@ -56,6 +57,13 @@
                 <%= f.submit (@user.new_record? ? "Sign Up" : "Update Account"), class: "btn navbar-home-text btn-lg" %>
             </div>
         <% end %>
+        <div class="mb-3">
+        </li>
+            <a class="nav-link navbar-item navbar-text <%= request.path == '/login' ? 'active' : '' %>" href="/login">Login</a>
+        </li>
+        </div>
+    </div>
+</div>
         
 
 

@@ -1,31 +1,26 @@
-<h1 class="text-center mt-4">Log in</h1>
-
-<div class="container form-container">
-    <div class="form-group row text-center col-10">
-        <%= form_with scope: :session, url: login_path, class: "shadow p-3 mb-2 rounded", local: true do |f| %>
-            <div class="form-group row">
-                <%= f.label :email, class: "col-2 col-form-label form-text" %><br/>
-                <div class="col-10">
-                    <%= f.email_field :email, class: "form-control shadow rounded form-text", placeholder:"Enter an email" %>
+<div class="page-content page-content-signin">
+    <div class="form-v10-content">
+        <%= form_with scope: :session, url: login_path, class: "form-detail rounded", id: "myform", local: true do |f| %>
+            <div class="form-left">
+                <h2>Login Into GEHU Blood Donation Camp</h2>
+                <div class="form-row " >
+                    <%= f.email_field :email, placeholder:"Enter your registered Email",class: "form-text" %>
+                </div>
+                <div class="form-row">
+                     <%= f.password_field :password, class: "form-text", placeholder:"Enter your password" %>
+                </div>
+                <hr>
+                <div class="text-lefts rounded">
+                    <a class="register_2 text-lefts rounded text-center text-color <%= request.path == '/signup' ? 'active' : '' %>" href="/signup">Sign up</a>
+                </div>
+                 <div class="rounded register text-rights">
+                    <%= f.submit "Sign in",class: "register text-color" %>
                 </div>
             </div>
-            <br>
-            <div class="form-group row">
-                <%= f.label :password, class: "col-2 col-form-label form-text" %><br/>
-                <div class="col-10">
-                    <%= f.password_field :password, class: "form-control shadow rounded form-text", placeholder:"Enter your password" %>
-                </div>
-            </div>
-            <br>
-            <div class="text-center">
-                <%= f.submit "Log in", class: "btn navbar-home-text btn-lg" %>
+            <div class="form-right">
+                <%= image_tag("blooddonation_login.png", class: "mx-auto d-block image-login", alt: "BloodDonation Logo") %>
             </div>
         <% end %>
-        <div class="mb-3">
-        </li>
-        <a class="nav-link navbar-item navbar-text <%= request.path == '/signup' ? 'active' : '' %>" href="/signup">Sign up</a>
-      </li>
-        </div>
     </div>
 </div>
 

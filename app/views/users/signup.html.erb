@@ -1,9 +1,73 @@
-<h1 class="text-center mt-4">Sign up</h1>
-<%= render 'shared/form' %>
-<div class="mb-3">
-        </li>
-            <a class="nav-link navbar-item navbar-text <%= request.path == '/login' ? 'active' : '' %>" href="/login">Login</a>
-        </li>
-        </div>
+<div class="page-content page-content-signin">
+    <%= render 'shared/errors', obj: @user %>
+    <div class="form-v10-content">
+        <%= form_with model: @user, class: "form-detail rounded", id: "myform", local: true do |f| %>
+            <div class="form-left">
+                <h2>General Infomation</h2>
+                <div class="form-row " >
+                    <%= f.text_field :username, placeholder:"Username",class: "form-text" %>
+                </div>
+                <div class="form-group">
+                    <div class="form-row form-row-1">
+                        <%= f.text_field :first_name, placeholder:"First Name",class: "form-text" %>
+                    </div>
+                    <div class="form-row form-row-2">
+                        <%= f.text_field :last_name, placeholder:"Last Name",class: "form-text" %>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <%= f.text_field :age, placeholder:"Age",class: "form-text" %>
+                </div>
+                <div class="form-row">
+                     <%= f.password_field :password, class: "form-text", placeholder:"Password" %>
+                </div>
+                <div class="form-group">
+                    <div class="form-row form-row-3">
+                        <%= f.select :blood_group ,["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"},{class: "form-text"} %>
+                    </div>
+                    <div class="form-row form-row-4">
+                        <%= f.select :gender ,["Male","Female","Others"],{prompt: "Select Gender"},{class: "form-text"} %>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-lefts rounded">
+                    <a class="register_2 text-lefts rounded text-center text-color <%= request.path == '/login' ? 'active' : '' %>" href="/login">Login</a>
+                </div>
+                 <div class="rounded register text-rights">
+                    <%= f.submit "Sign up",class: "register text-color" %>
+                </div>
+            </div>
+            <div class="form-right">
+                <h2>Contact Details</h2>
+                <div class="form-row">
+                    <%= f.text_field :street, placeholder:"Street No",class: "form-text" %>
+                </div>
+                <div class="form-row">
+                    <%= f.text_field :additional_info, placeholder:"Additional Information",class: "form-text" %>
+                </div>
+                <div class="form-group">
+                    <div class="form-row form-row-1">
+                        <%= f.select :pin_code ,["248001"],{prompt: "Pin Code"},{class: "form-text"} %>
+                    </div>
+                    <div class="form-row form-row-2">
+                        <%= f.select :city ,["Dehradun"],{prompt: "City"},{class: "form-text"} %>
+                    </div>
+                </div>
+                <div class="form-row">
+                     <%= f.select :country,["India"],{prompt: "Country"},{class: "form-text"} %>
+                </div>
+                <div class="form-group">
+                    <div class="form-row form-row-1">
+                         <%= f.select :code ,["91 +"],{prompt: "Code +"},{class: "form-text"} %>
+                    </div>
+                    <div class="form-row form-row-2">
+                       <%= f.text_field :phone_no, placeholder:"Phone Number",class: "form-text" %>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <%= f.email_field :email, class: "form-text", placeholder:"Enter your email" %>
+                </div>
+            </div>
+        <% end %>
     </div>
 </div>
