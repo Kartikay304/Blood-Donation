@@ -1,10 +1,10 @@
-class UsersController < ApplicationController
+class DashboardController < ApplicationController
 
-    def signup
+    def dashboard
         @user = User.new
     end
 
-    def edit
+    def show 
         @user=User.find(params[:id])
     end
 
@@ -28,6 +28,8 @@ class UsersController < ApplicationController
         end
     end
 
+    def show 
+    end
     private
     def user_params
         params.require(:user).permit(:username, :first_name, :last_name, :age, :password, 
