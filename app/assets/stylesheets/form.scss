@@ -358,6 +358,13 @@ body {
 	display: inline-block;
 }
 
+.text-rights {
+	width: 272px;
+	padding-top: 12px;
+	height: 55px;
+	display: inline-block;
+}
+
 //Breakpoints
 @media (max-width: 1136px) and (min-width: 767px) {
 	.register {
@@ -369,7 +376,7 @@ body {
 	.text-lefts{
 		margin-left: 30px;
 	}
-	.text-rights {
+	.text-rights,.rights {
 		margin-left: 60px;
 	}
 }
@@ -384,7 +391,7 @@ body {
 	.text-lefts{
 		margin-left: 30px;
 	}
-	.text-rights {
+	.text-rights,.rights {
 		margin-left: 60px;
 	}
 }
@@ -403,7 +410,7 @@ body {
 	.text-lefts{
 		margin-left: 15px;
 	}
-	.text-rights {
+	.text-rights,.rights {
 		margin-left: 30px;
 	}
 }
