@@ -430,3 +430,14 @@ body {
 		width: 358px;
 	}
 }
+
+@media (max-width: 1200px) {
+	.page-content {
+		margin-top: -80px;
+	}
+}
+@media (min-width: 1200px) {
+	.page-content {
+		margin-top: 100px;
+	}
+}

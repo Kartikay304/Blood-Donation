@@ -28,10 +28,10 @@
                 </div>
                 <hr>
                 <div class="text-lefts rounded">
-                    <a class="register_2 text-lefts rounded text-center text-color <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
+                    <a class="register_2 text-rights rounded text-center text-color <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
                 </div>
                  <div class="rounded text-rights">
-                     <a class="register text-lefts rounded text-center text-color" <%= link_to "Update User", edit_user_path %> </a>
+                    <%= link_to "Update User", edit_user_path,class: "register text-lefts rounded text-center text-color" %>
                 </div>
             </div>
             <div class="form-right">
@@ -68,3 +68,18 @@
         <% end %>
     </div>
 </div>
+    <div class="page-content">
+        <div class="form-v10-content">
+            <div class="form-detail">
+                    <div class="form-left">
+                        <h2>General Infomation</h2>
+                        <div class="form-row">1234</div>
+                    </div>
+                    <div class="form-right">
+                        <h2>Contact Details</h2>
+                        <div class="form-row">1234</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
