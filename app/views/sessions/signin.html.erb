@@ -1,5 +1,6 @@
 <div class="page-content page-content-signin">
     <div class="form-v10-content">
+    <%= render 'shared/messages' %>
         <%= form_with scope: :session, url: login_path, class: "form-detail rounded", id: "myform", local: true do |f| %>
             <div class="form-left">
                 <h2>Login Into GEHU Blood Donation Camp</h2>
