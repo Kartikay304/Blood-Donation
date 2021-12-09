@@ -15,6 +15,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :code 
       t.integer :phone_no
       t.string :email
+      t.string :camp
+      t.integer :donated
       t.timestamps
     end
   end

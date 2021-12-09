@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
         @user =User.find(params[:id])
         if @user.update(user_params)
             flash[:notice] = "Your account information as successfully updated"
-            redirect_to root_path
+            redirect_to dashboard_path
         else
             render 'edit'
         end
@@ -32,8 +32,8 @@ class DashboardController < ApplicationController
     end
     private
     def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :age, :password, 
-            :blood_group, :gender, :street, :additional_info, :pin_code, :city, :country, :code, :phone_no, :email)
+        params.permit(:username, :first_name, :last_name, :age, :password, 
+            :blood_group, :gender, :street, :additional_info, :pin_code, :city, :country, :code, :phone_no, :email, :donated, :camp)
     end
 
 end
