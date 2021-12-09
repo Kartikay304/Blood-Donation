@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_080714) do
     t.string "code"
     t.integer "phone_no"
     t.string "email"
+    t.string "camp"
+    t.integer "donated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
