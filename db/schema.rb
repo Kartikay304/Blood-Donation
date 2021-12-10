@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_080714) do
+ActiveRecord::Schema.define(version: 2021_12_09_174804) do
+
+  create_table "userdonations", force: :cascade do |t|
+    t.string "username"
+    t.string "blood_group"
+    t.string "camp"
+    t.integer "donated"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -27,8 +36,6 @@ ActiveRecord::Schema.define(version: 2021_12_03_080714) do
     t.string "code"
     t.integer "phone_no"
     t.string "email"
-    t.string "camp"
-    t.integer "donated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

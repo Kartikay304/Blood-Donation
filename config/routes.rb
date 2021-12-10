@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   #signup
   get "/signup", to: "users#signup"
+  post "/signup", to: "users#signup"
   resources :users, except: [:signup]
 
   #signin
@@ -18,8 +19,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   #dashboard
-  get "dashboard/:id/", to: "dashboard#show"
-  post "dashboard/:id", to: "dashboard#update"
-  resources :dashboard
-  # post 'dashboard/:id/', to: 'dashboard#update'
+  get "/dashboard/:id", to: "dashboard#index"
+  post "/dashboard/:id", to: "dashboard#create"
+  resources :dashboard, except: [:dashboard]
 end
