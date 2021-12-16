@@ -349,7 +349,7 @@ body {
   
 	&:hover {
 	  color: white !important;
-}
+    }
 }
 .text-lefts {
 	width: 272px;
@@ -363,6 +363,23 @@ body {
 	padding-top: 12px;
 	height: 55px;
 	display: inline-block;
+}
+
+.page-content-signin{
+	padding-top: 100px;
+}
+
+.image-login{
+	padding-top: 90px;
+	max-width: 25rem;
+	max-height: 25rem;
+}
+
+.donation {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 //Breakpoints
@@ -396,13 +413,15 @@ body {
 	}
 }
 
-.page-content-signin{
-	padding-top: 100px;
-}
-
 @media (max-width: 1200px) {
 	.page-content-signin{
 		padding-top: 40px;
+	}
+	.page-content {
+		margin-top: -80px;
+	}
+	.donated {
+		margin-left: 95px;
 	}
 }
 
@@ -415,12 +434,6 @@ body {
 	}
 }
 
-.image-login{
-	padding-top: 90px;
-	max-width: 25rem;
-	max-height: 25rem;
-}
-
 @media (max-width: 764px) and (min-width: 760px) {
 	.image-login{
 		padding-bottom: 20px;
@@ -431,16 +444,11 @@ body {
 	}
 }
 
-@media (max-width: 1200px) {
-	.page-content {
-		margin-top: -80px;
-	}
-}
 @media (min-width: 1200px) {
 	.page-content {
 		margin-bottom: 80px;
 	}
 	.donated {
-		margin-left: 130px;;
+		margin-left: 135px;;
 	}
 }

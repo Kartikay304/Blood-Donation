@@ -74,21 +74,22 @@
             <div class="form-left">
                 <h2>Donate Blood</h2>
                 <div class="form-row">
-                    <%= f.text_field :username, value: Current.user.username, class: "form-text text-muted" %>
+                    <%= f.select :username, [Current.user.username], class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
-                    <%= f.text_field :blood_group, value: Current.user.blood_group, class: "form-text text-muted" %>
+                    <%= f.select :blood_group, [Current.user.blood_group], class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
-                    <%= f.text_field :donated, value: "470ml",class: "form-text" %>
+                    <%= f.select :donated, ["470"], class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
                     <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
                 </div>
                 <div class="rounded register rights donated text-right">
-                    <%= f.submit "DONATE",class: "register text-color" %>
+                    <%= f.submit "Donate",class: "register text-color" %>
                 </div>
             </div>
+            <br>
             <div class="form-right">
                 <h2>Key Notes</h2><br><br>
                 <div class="form-row">Healthy adults (18-75 years) who meet donation eligibility criteria can donate blood. The procedure is safe and relatively painless.
@@ -97,6 +98,7 @@
                         <li>The body replaces this volume within 24 to 48 hours, and replenishes red blood cells in 10 to 12 weeks.</li>
                     </ul>
                 </div>
+                <br><br><br><br>
             </div>
         <% end %>
     </div>
