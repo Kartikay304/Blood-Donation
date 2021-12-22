@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   get "/dashboard/:id", to: "dashboard#index"
   post "/dashboard/:id", to: "dashboard#create"
   resources :dashboard, except: [:dashboard]
+
+  #posts
+  post "/", to: "blooddonation#create"
+
 end

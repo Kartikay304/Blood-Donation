@@ -1,6 +1,6 @@
 <div class="page-content">
     <div class="form-v10-content">
-    <%= render 'shared/messages' %>
+    <%= render 'shared/messages'%>
         <%= form_with model: @user, class: "form-detail rounded", id: "myform", local: true do |f| %>
             <div class="form-left">
                 <h2>General Infomation</h2>
@@ -80,7 +80,8 @@
                     <%= f.select :blood_group, [Current.user.blood_group], class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
-                    <%= f.select :donated, ["470"], class: "form-text text-secondary" %>
+                    <%= f.select :donated, ["500"], class: "form-text text-secondary" %>
+                    <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
                     <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
@@ -101,5 +102,84 @@
                 <br><br><br><br>
             </div>
         <% end %>
+    </div> 
+</div>
+<div class="page-content">
+    <div class="form-v10-content">
+        <%= form_with model: @userdonation, class: "form-detail rounded", id: "myform", local: true do |f| %>
+            <div class="form-left">
+                <h2>Receive Blood</h2>
+                 <div class="form-row">
+                    <%= f.select :username, [Current.user.username], class: "form-text text-secondary" %>
+                </div>
+                    <% if Current.user.blood_group == 'A+' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["A+","A+","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text " %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'A-' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["A-","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'B+' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["B+","B-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'B-' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["B+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'AB+' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'AB-' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["AB-","A-","B-","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'O+' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                     <% if Current.user.blood_group == 'O-' %>
+                        <div class="form-row">
+                            <%= f.select :blood_group, ["O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        </div>
+                    <% end %>
+                <div class="form-row">
+                    <%= f.select :received, ["400"], class: "form-text text-secondary" %>
+                    <%= f.hidden_field  :donated, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                </div>
+                <div class="form-row">
+                    <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
+                </div>
+                <div class="rounded register rights donated text-right">
+                    <%= f.submit "Receive",class: "register text-color" %>
+                </div>
+            </div>
+            <br>
+            <div class="form-right">
+                <h2>Key Notes</h2><br><br>
+                <div class="form-row">Healthy adults (18-75 years) who meet donation eligibility criteria can donate blood. The procedure is safe and relatively painless.
+                   <ul>
+                        <li>During a regular donation, you will give around 470ml of whole blood. This is about 8% of the average adult's blood volume.</li>
+                        <li>The body replaces this volume within 24 to 48 hours, and replenishes red blood cells in 10 to 12 weeks.</li>
+                    </ul>
+                </div>
+                <br><br><br><br>
+            </div>
+        <% end %>
     </div>
 </div>
+
+ <% Userdonation.all.each do |t| %>
+    <% if t.blood_group == 'AB+' %>
+        <%= Userdonation.sum(:donated)%>
+    <% end %>
+<% end %>
