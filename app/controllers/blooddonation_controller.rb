@@ -16,7 +16,7 @@ class BlooddonationController < ApplicationController
         @post=Post.new(post_params)
         @post.save
         if @post.save
-            flash[:notice] = "Article was created successfully."
+            flash[:notice] = "Request send successfully."
             redirect_to root_path
         else
             flash[:notice] = "Something went wrong!,Re-check the details in form"

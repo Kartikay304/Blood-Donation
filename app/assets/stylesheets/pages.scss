@@ -1,0 +1,80 @@
+//headings
+.main-heading {
+    color: #c21d1d;
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+  
+.submain-heading {
+    color: #c21d1d;
+    margin-top: 25px;
+}
+
+.p-text {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #212529;
+}
+
+.center-row {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1344px;
+    text-align: center;
+}
+
+.about-contributors-section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    min-width: 100%;
+    justify-content: center;
+}
+
+.about-contributor {
+    height: 100px;
+    padding: 10px;
+    width: 100px;
+}
+
+.justified-paragraph {
+    margin: 30px 0;
+    text-align: justify;
+  }
+  
+.centered-paragraph {
+    margin: 30px 0;
+    margin-left: 95px;
+    margin-right: 95px;
+    text-align: center;
+}
+
+.team-underline {
+    position: relative;
+}
+
+.team-underline::before {
+    background-color: #ff5959;
+    bottom: 0;
+    content: '';
+    height: 2px;
+    position: absolute;
+    right: 0;
+    transition: width .6s cubic-bezier(.25, 1, .5, 1);
+    width: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+.team-underline:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+}
+}

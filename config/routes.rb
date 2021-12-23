@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root "blooddonation#index"
-  get "/plasma", to: "blooddonation#plasma"
+  get "/plasma", to: redirect("/#home-plasma-section")
   get "/why_give_blood", to: "blooddonation#why_give_blood"
   get "/who_can_give_blood", to: "blooddonation#who_can_give_blood"
   get "/donation_process", to: "blooddonation#donation_process"
@@ -25,5 +25,4 @@ Rails.application.routes.draw do
 
   #posts
   post "/", to: "blooddonation#create"
-
 end

@@ -3,36 +3,98 @@
         <%= render 'shared/messages' %>
         <div class="form-detail rounded", id="myform">
             <div class="form-left">
-                <h2>Donate Blood</h2>
-                <div class="form-row">HELLO
+                <h2 class="text-center">All Requests</h2>
+                <hr>
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="2000"><br><h1 class="main-heading text-center">REQUESTS</h1><br><br><br><br></div>
+                        <% Post.all.each do |post| %>
+                        <div class="carousel-item">
+                            <div class="card text-center shadow bg-white rounder">
+                                <div class="card-header"><i><%= post.username %></i></div>
+                                <div class="card-body">
+                                    <p class="card-text"><u><b><%= post.title %></b></u></p>
+                                    <p class="card-text"><%= post.description %></p>
+                                    <p class="card-text">Blood group : <b><%= post.blood_group %></b></p>
+                                </div>
+                                <div class="card-footer text-muted"><small>Created <%= time_ago_in_words(post.created_at) %> ago, edited <%= time_ago_in_words(post.updated_at) %> ago</small></div>
+                            </div>
+                        </div>
+                        <% end %>
+                        <button class="carousel-control-next" type="button" id="clickButton" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                     </div>
                 </div>
+                <hr><br>
+                <p class="text-center">This is a slideshow.you can also click anywhere on the window to go to next post.</p>
             </div>
             <br>
             <div class="form-right">
-                <h2>Create Post</h2><br><br>
-                <div class="form-row">
-                    <%= form_with model: @post, local: true do |f| %>
-                        <div class="form-row " >
-                            <%= f.text_field :title, placeholder:"Enter Title",class: "form-text" %>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-row form-row-3">
-                                <%= f.text_field :username, value: Current.user.username,class: "form-text" %>
+                <% if Current.user%>
+                    <h2 class="text-center">Create Post</h2>
+                    <div class="form-row">
+                        <%= form_with model: @post, local: true do |f| %>
+                            <div class="form-row " >
+                                <%= f.text_field :title, placeholder:"Enter Title",class: "form-text" %>
                             </div>
-                            <div class="form-row form-row-4">
-                                <%= f.select :blood_group ,["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"},{class: "form-text"} %>
+                            <div class="form-group">
+                                <div class="form-row form-row-3">
+                                    <%= f.text_field :username, value: Current.user.username,class: "form-text" %>
+                                </div>
+                                <div class="form-row form-row-2">
+                                    <%= f.text_field :blood_group ,value: Current.user.blood_group,class: "form-text" %>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row " >
-                            <%= f.text_field :description, placeholder:"Enter Description",class: "form-text" %>
-                        </div>
-                        <hr>
-                        <div class="rounded register rights text-right">
-                            <%= f.submit "Post",class: "register text-color" %>
-                        </div>
-                    <% end %>
-                </div>
+                            <div class="form-row " >
+                                <%= f.text_field :description, placeholder:"Enter Description",class: "form-text" %>
+                            </div>
+                            <hr>
+                            <div class="rounded register rights home text-right">
+                                <%= f.submit "Post",class: "register text-color" %>
+                            </div>
+                        <% end %>
+                    </div>
+                <% else %>
+                    <h2 class="text-center">GEHU BLOOD DONATION</h2><br>
+                    <div class="text-center"><b>TO POST YOUR REQUEST PLEASE LOGIN</b></div><br>
+                    <div class="text-rights donated rounded">
+                         <a class="register text-rights rounded text-center text-color <%= request.path == '/login' ? 'active' : '' %>" href="/login">Login</a>
+                   </div>
+                <% end %>
             </div>
         </div>
     </div> 
 </div>
+<div class="container" id="home-plasma-section">
+  <div class="row center-row">
+    <div class="col-xs col-sm col-md col-lg text-center">
+        <h1 class="main-heading">PLASMA</h1>
+        <p class="centered-paragraph p-text">Plasma is a yellowish liquid in your blood that carries platelets, red blood cells and white blood cells around the body.
+        Plasma makes up approximately 55% of your blood, and contains antibodies, known as immunoglobulins, which fight infection.
+        These antibodies are made into medicines to help people with cancers, rare diseases, immune disorders and genetic conditions.</p>
+        
+        <%= image_tag ("structureofblood.png"),class: "ml-4" %>
+        
+        <h3 class="submain-heading">WHO CAN DONATE PLASMA?</h3>
+        <p class="centered-paragraph p-text">Generally, plasma donors must be 18 years of age and weigh at least 110 pounds (50kg). All individuals must pass two separate medical examinations, 
+        a medical history screening and testing for transmissible viruses, before their donated plasma can be used to manufacture plasma protein therapies.</p>
+
+        <h3 class="submain-heading">PLASMA DONATION PROCESS</h3>
+        <div class="centered-paragraph p-text"><b>Plasma donation has four steps</b><br>
+           <li>A vein is cannulated in one arm. Your blood is collected in a machine using a sterile, disposable system.</li>
+           <li>This machine separates the blood into cells and plasma.</li>
+           <li>The plasma is collected and stored.</li>
+           <li>The blood cells are returned to your body via the system.</li><br>
+        The procedure for collecting and returning (except for the venous cannulation, of course) is repeated a few times during a plasma donation session. This way, we collect slightly over half litre of plasma.</div>
+        <%= image_tag ("donateplasma.png")%>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.onclick = function() {
+    document.getElementById('clickButton').click();
+}
+</script>
