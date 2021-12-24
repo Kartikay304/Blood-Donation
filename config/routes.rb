@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   root "blooddonation#index"
   get "/plasma", to: redirect("/#home-plasma-section")
-  get "/why_give_blood", to: "blooddonation#why_give_blood"
-  get "/who_can_give_blood", to: "blooddonation#who_can_give_blood"
-  get "/donation_process", to: "blooddonation#donation_process"
-  get "/about", to: "blooddonation#about"
+  get "/why_give_blood", to: redirect("/#home-why_give_blood-section")
+  get "/who_can_give_blood", to: redirect("/#home-who_can_give_blood-section")
+  get "/donation_process", to: redirect("/#home-donation_process-section")
+  get "/about", to: redirect("/#home-about-section")
   
   #signup
   get "/signup", to: "users#signup"

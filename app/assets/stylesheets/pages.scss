@@ -78,3 +78,24 @@
     width: 100%;
 }
 }
+
+hr {
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-width: 1px;
+    opacity: 0.1;
+}
+
+.image {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.image-2 {
+    max-width: 60%;
+    max-height: 60%;
+}
+.image-3 {
+    max-width: 40%;
+    max-height: 40%;
+}
