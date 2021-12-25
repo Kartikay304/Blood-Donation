@@ -1,6 +1,6 @@
 <div class="page-content mt-4">
    <div class="form-v10-content">
-      <%= render 'shared/messages' %>
+      <%= render 'shared/messages'%>
       <div class="form-detail rounded", id="myform">
          <div class="form-left">
             <h2 class="text-center">All Requests</h2>
@@ -12,7 +12,7 @@
                      <h1 class="main-heading text-center">REQUESTS</h1>
                      <br><br><br><br>
                   </div>
-                  <% Post.all.each do |post| %>
+                  <% Post.all.order('created_at DESC').limit(50).each  do |post| %>
                   <div class="carousel-item">
                      <div class="card text-center shadow bg-white rounder">
                         <div class="card-header"><i><%= post.username %></i></div>
@@ -31,8 +31,7 @@
                </div>
             </div>
             <hr>
-            <br>
-            <p class="text-center">This is a slideshow.you can also click anywhere on the window to go to next post.</p>
+            <p class="text-center"><b>You can click anywhere on the window to go to next post.</b></p>
          </div>
          <br>
          <div class="form-right">
@@ -54,7 +53,6 @@
                <div class="form-row " >
                   <%= f.text_field :description, placeholder:"Enter Description",class: "form-text" %>
                </div>
-               <hr>
                <div class="rounded register rights home text-right">
                   <%= f.submit "Post",class: "register text-color" %>
                </div>
@@ -99,7 +97,7 @@
             <%= image_tag ("donateplasma.png"), class: "col-xs col-sm col-md col-lg image-2"%>
         </div>
     </div>
-    <div class="centered-paragraph p-text"><hr></div>
+    <div class="centered-paragraph p-text"><hr class="hr-class"></div>
 </div>
 <div class="container" id="home-why_give_blood-section">
     <div class="row center-row">
@@ -114,7 +112,7 @@
             <%= image_tag ("1bag_3life.png"), class: "col-xs col-sm col-md col-lg image-2"%>
         </div>
     </div>
-    <div class="centered-paragraph p-text"><hr></div>
+    <div class="centered-paragraph p-text"><hr class="hr-class"></div>
 </div>
 <div class="container" id="home-who_can_give_blood-section">
    <div class="row center-row">
@@ -123,11 +121,10 @@
         <div class="centered-paragraph p-text">The criteria for donor selection varies from country to country, but blood can be donated by most people who are healthy and do not have an 
         infection that can be transmitted through their blood.The age at which people are eligible to give blood varies, but is commonly between the ages of 17 and 65. Some countries accept 
         donations from people from the age of 16 and extend the upper age limit beyond 65 years.Healthy adults can give blood regularly - at least twice a year.<br><br><b>Who can receive your blood?</b></div>
-        
         <iframe width="560" height="315" src="https://www.youtube.com/embed/B6dAPXpUjCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
    </div>
-   <div class="centered-paragraph p-text"><hr></div>
+   <div class="centered-paragraph p-text"><hr class="hr-class"></div>
 </div>
 <div class="container" id="home-donation_process-section">
     <div class="row center-row">
@@ -171,17 +168,31 @@
              <%= image_tag ("blood-plasama-platelets-timeperiod.png"), class: "col-xs col-sm col-md col-lg image-2"%>
         </div>
     </div>
-    <div class="centered-paragraph p-text"><hr></div>
+    <div class="centered-paragraph p-text"><hr class="hr-class"></div>
 </div>
 <div class="container" id="home-about-section">
    <div class="row center-row">
       <div class="col-xs col-sm col-md col-lg text-center">
          <h1 class="main-heading">ABOUT</h1>
-         <p class="centered-paragraph p-text"></p>
+         <p class="main-description">Learn about the people behind the project</p>
+         <div class="centered-paragraph p-text">THis website is a project developed by students at GEHU. It aims to provide a platform where people can  donate and receive blood. 
+         While users can also post requests for blood, they can also chat with each other in the provided chatrooms.This is an open-source project, we are actively working to add more features and make user interface as simple as possible. Checkout the contribute page for more detail.</div>
+         <h3 class="submain-heading">CORE TEAM</h3>
+         <div class="main-description">BloodDonation is lead by a team that is dedicated to innovation and excellence.
+            <div class="about-contributors-section">
+            <% @cores.each do |member| %>
+               <div class="team-member-container team-link">
+                  <div class="team-underline text-center">
+                     <a target="_blank" href="<%= member[:link] %>"><%= image_tag member[:img], :class => "about-contributor-image " %><p class="team-footer underline name-text" ><%= member[:name] %></p></a>
+                  </div>
+               </div>
+            <% end %>
+            </div>
+            <br><br>
+         </div>
       </div>
    </div>
 </div>
-
 
 <script>
    window.onclick = function() {

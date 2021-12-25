@@ -10,12 +10,13 @@
     top: 0;
     width: 100%;
     z-index: 100;
+    font-family: inter;
   }
   
   .navbar-home-text {
     border: 2px solid #ff5959;
     color: #343a40;
-    font-weight: 500;
+    font-weight: 600;
     transition: all .3s ease-in;
   
     &:hover {
@@ -49,7 +50,7 @@
   
   .navbar .navbar-nav .nav-link{
     color: #343a40;
-    font-weight: 500;
+    font-weight: 600;
     }
   
   #navbar-dropdown-1,
@@ -90,3 +91,8 @@
     text-decoration: none;
   }
   //breakpoints
+
+.dropdown-item {
+  font-weight: 500;
+  font-family: inter;
+}
