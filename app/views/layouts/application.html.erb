@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
 
+    <%= csrf_meta_tags %>
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csp_meta_tag %>
@@ -18,11 +21,28 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class ="page-contents">
+    <div class ="page-contents content">
       <%= yield %>
+      <a id="button"></a>
     </div>
+    <%= render 'layouts/footer' %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+     <script>
+        var btn = $('#button');
+        $(window).scroll(function() {
+          if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+          } else {
+            btn.removeClass('show');
+          }
+        });
+
+        btn.on('click', function(e) {
+          e.preventDefault();
+          $('html, body').delay(.000001).animate({scrollTop:0}, '300');
+        });
+    </script>
   </body>
 </html>
