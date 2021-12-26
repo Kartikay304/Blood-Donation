@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+#I18n
+gem 'rails-i18n'
 #execute sql
 gem 'execute_sql'
 # generate table in console mode using tp

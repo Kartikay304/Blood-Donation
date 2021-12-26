@@ -18,5 +18,8 @@ module BloodDonation
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.118n.available_locales =[:en, :hi]
+    config.118n.default.locale =:en
+    config.118n.fallbacks =true
   end
 end

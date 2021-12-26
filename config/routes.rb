@@ -25,4 +25,5 @@ Rails.application.routes.draw do
 
   #posts
   post "/", to: "blooddonation#create"
+
 end
