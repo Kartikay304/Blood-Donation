@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root "blooddonation#index"
+  root "blooddonation#index", to:redirect("/#home")
   get "/plasma", to: redirect("/#home-plasma-section")
   get "/why_give_blood", to: redirect("/#home-why_give_blood-section")
   get "/who_can_give_blood", to: redirect("/#home-who_can_give_blood-section")

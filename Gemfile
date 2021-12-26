@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+#execute sql
+gem 'execute_sql'
 # generate table in console mode using tp
 gem 'table_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
