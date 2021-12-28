@@ -1,71 +1,73 @@
-<div class="page-content">
-    <div class="form-v10-content">
-    <%= render 'shared/messages'%>
-        <%= form_with model: @user, class: "form-detail rounded", id: "myform", local: true do |f| %>
-            <div class="form-left">
-                <h2>General Infomation</h2>
-                <div class="form-row " >
-                    <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
-                </div>
-                <div class="form-group">
-                    <div class="form-row form-row-1">
-                        <%= f.text_field :first_name, :value => Current.user.first_name, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-row form-row-2">
-                        <%= f.text_field :last_name, :value => Current.user.last_name, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <%= f.text_field :age, :value => Current.user.age, disabled: :true, class: "form-text text-muted" %>
-                </div>
-                <div class="form-group">
-                    <div class="form-row form-row-3">
-                        <%= f.text_field :blood_group, :value => Current.user.blood_group, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-row form-row-4">
-                        <%= f.text_field :gender, :value => Current.user.gender, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                </div>
-                <hr>
-                <div class="text-lefts rounded">
-                    <a class="register_2 text-rights rounded text-center text-color <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
-                </div>
-                 <div class="rounded text-rights">
-                    <%= link_to "Update User", edit_user_path,class: "register text-lefts rounded text-center text-color" %>
-                </div>
-            </div>
-            <div class="form-right">
-                <h2>Contact Details</h2>
-                <div class="form-row">
-                    <%= f.text_field :street, :value => Current.user.street, disabled: :true, class: "form-text text-muted" %>
-                </div>
-                <div class="form-row">
-                    <%= f.text_field :additional_info, :value => Current.user.additional_info, disabled: :true,class: "form-text text-muted" %>
-                </div>
-                <div class="form-group">
-                    <div class="form-row form-row-1">
-                       <%= f.text_field :pin_code, :value => Current.user.pin_code, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-row form-row-2">
-                       <%= f.text_field :city, :value => Current.user.city, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                </div>
-                <div class="form-row">
-                     <%= f.text_field :country, :value => Current.user.country, disabled: :true, class: "form-text text-muted" %>
-                </div>
-                <div class="form-group">
-                    <div class="form-row form-row-1">
+<div class="container">
+   <%= render 'shared/messages'%>
+    <div class="page-content">
+        <div class="form-v10-content">
+            <%= form_with model: @user, class: "form-detail rounded", id: "myform", local: true do |f| %>
+                <div class="form-left">
+                    <h2>General Infomation</h2>
+                    <div class="form-row " >
                         <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
                     </div>
-                    <div class="form-row form-row-2">
-                       <%= f.text_field :phone_no, :value => Current.user.phone_no, disabled: :true,class: "form-text text-muted" %>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <%= f.text_field :first_name, :value => Current.user.first_name, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-2">
+                            <%= f.text_field :last_name, :value => Current.user.last_name, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <%= f.text_field :age, :value => Current.user.age, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-3">
+                            <%= f.text_field :blood_group, :value => Current.user.blood_group, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-4">
+                            <%= f.text_field :gender, :value => Current.user.gender, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-lefts rounded">
+                        <a class="register_2 text-rights rounded text-center text-color <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
+                    </div>
+                    <div class="rounded text-rights">
+                        <%= link_to "Update User", edit_user_path,class: "register text-lefts rounded text-center text-color" %>
                     </div>
                 </div>
-                <div class="form-row">
-                    <%= f.email_field :email, :value => Current.user.email, disabled: :true, class: "form-text text-muted" %>
+                <div class="form-right">
+                    <h2>Contact Details</h2>
+                    <div class="form-row">
+                        <%= f.text_field :street, :value => Current.user.street, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-row">
+                        <%= f.text_field :additional_info, :value => Current.user.additional_info, disabled: :true,class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                        <%= f.text_field :pin_code, :value => Current.user.pin_code, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-2">
+                        <%= f.text_field :city, :value => Current.user.city, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <%= f.text_field :country, :value => Current.user.country, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-2">
+                        <%= f.text_field :phone_no, :value => Current.user.phone_no, disabled: :true,class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <%= f.email_field :email, :value => Current.user.email, disabled: :true, class: "form-text text-muted" %>
+                    </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
 <div class="page-content">
@@ -80,7 +82,7 @@
                     <%= f.select :blood_group, [Current.user.blood_group], class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
-                    <%= f.select :donated, ["500"], class: "form-text text-secondary" %>
+                    <%= f.select :donated, ["470 ml"], class: "form-text text-secondary" %>
                     <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
@@ -153,7 +155,7 @@
                         </div>
                     <% end %>
                 <div class="form-row">
-                    <%= f.select :received, ["4000"], class: "form-text text-secondary" %>
+                    <%= f.text_field :received, placeholder: "Enter the required blood in ml", class: "form-text" %>
                     <%= f.hidden_field  :donated, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
