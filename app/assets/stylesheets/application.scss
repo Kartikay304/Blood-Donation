@@ -30,6 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 .content {
   flex: 1 0 auto;
@@ -54,4 +55,3 @@ body {
 ::-webkit-scrollbar-button:start {
   height: 50px; //for vertical scrollbar
 }
-

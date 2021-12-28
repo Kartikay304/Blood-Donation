@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  scope "/:locale", locale: /en|in/ do
+  end
   root "blooddonation#index", to:redirect("/#home")
   get "/plasma", to: redirect("/#home-plasma-section")
   get "/why_give_blood", to: redirect("/#home-why_give_blood-section")
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   #signin
   get 'login', to: 'sessions#signin'
   post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  get 'logout', to: 'sessions#destroy'
 
   #dashboard
   get "/dashboard/:id", to: "dashboard#index"

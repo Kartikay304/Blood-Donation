@@ -153,7 +153,7 @@
                         </div>
                     <% end %>
                 <div class="form-row">
-                    <%= f.select :received, ["400"], class: "form-text text-secondary" %>
+                    <%= f.select :received, ["4000"], class: "form-text text-secondary" %>
                     <%= f.hidden_field  :donated, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                 </div>
                 <div class="form-row">
@@ -178,5 +178,11 @@
     </div>
 </div>
 <br><br>
-<%sql="select donated from userdonations WHERE blood_group ='A+'"%>
-<%= ActiveRecord::Base.connection.execute(sql) %>
+<%= @A %>
+<%= @a %>
+<%= @B %>
+<%= @b %>
+<%= @AB %>
+<%= @ab %>
+<%= @O %>
+<%= @o %>

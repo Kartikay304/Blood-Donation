@@ -1,6 +1,14 @@
 class DashboardController < ApplicationController
 
     def index
+        @A=Userdonation.where(blood_group: 'A+').sum(:donated)
+        @a=Userdonation.where(blood_group: 'A-').sum(:donated)
+        @B=Userdonation.where(blood_group: 'B+').sum(:donated)
+        @b=Userdonation.where(blood_group: 'B-').sum(:donated)
+        @AB=Userdonation.where(blood_group: 'AB+').sum(:donated)
+        @ab=Userdonation.where(blood_group: 'AB-').sum(:donated)
+        @O=Userdonation.where(blood_group: 'O+').sum(:donated)
+        @o=Userdonation.where(blood_group: 'O-').sum(:donated)
     end
 
     def create

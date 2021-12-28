@@ -203,6 +203,7 @@
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
+  text-decoration: none;
 }
 #button::after {
   content: "\f077";

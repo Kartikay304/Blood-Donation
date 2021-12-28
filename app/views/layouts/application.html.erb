@@ -6,43 +6,46 @@
     <%= 'BloodDonation - Donate Blood,Plasma or Platelets' %>
     <meta name="keywords" content="blood,blood donation,donate blood,receive blood,find donor,blood donation website, where to donate blood,blood donation process,plasma,how to donate plasma,where to donate plasma,where to donate blood,blood donation camp,donation process,Platelets,where to donate Platelets,Platelets donation process">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
-
+    
     <%= csrf_meta_tags %>
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csp_meta_tag %>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
     <div class ="page-contents content" id="home">
+      <%= t('hello') %>
+      <p>
+        <%= link_to "English", { locale: :en }%>
+        <%= link_to "Hindi", { locale: :hi } %>
+      </p>
       <%= yield %>
       <a id="button"></a>
     </div>
     <%= render 'layouts/footer' %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
      <script>
-        var btn = $('#button');
-        $(window).scroll(function() {
-          if ($(window).scrollTop() > 300) {
-            btn.addClass('show');
-          } else {
-            btn.removeClass('show');
-          }
-        });
+          var btn = $('#button');
+          $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+              btn.addClass('show');
+            } else {
+              btn.removeClass('show');
+            }
+          });
 
-        btn.on('click', function(e) {
-          e.preventDefault();
-          $('html, body').delay(.000001).animate({scrollTop:0}, '300');
-        });
+          btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').delay(.000001).animate({scrollTop:0}, '300');
+          });
     </script>
-
   </body>
 </html>
