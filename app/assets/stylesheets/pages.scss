@@ -225,3 +225,47 @@
   opacity: 1;
   visibility: visible;
 }
+
+.close{
+  margin-top: 5px;
+}
+.message-close:hover {
+  color:#ff5959;
+}
+
+.message-container{
+  background: #fff;
+	border-radius: 10px;
+  margin-right: 100px;
+	box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+	position: relative;
+	font-family: 'Montserrat', sans-serif;
+  margin-left: 100px;
+}
+
+.ddd{
+  max-width: 100%;
+}
+
+@media (max-width: 1399px) {
+	.message-container  {
+		margin-left: 9px;
+    margin-right: 8px;
+	}
+}
+
+@media (max-width: 1199px) {
+	.message-container  {
+		margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: -100px;
+	}
+}
+
+@media (max-width: 968px) {
+	.message-container  {
+		margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -100px;
+	}
+}
