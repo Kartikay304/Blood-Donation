@@ -1,0 +1,271 @@
+//headings
+.main-heading {
+    color: #c21d1d;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.main-description {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+.submain-heading {
+    color: #c21d1d;
+    margin-top: 25px;
+}
+
+.p-text {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: inter;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #212529;
+    box-sizing: border-box;
+}
+
+.center-row {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1344px;
+    text-align: center;
+}
+
+.about-contributors-section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    min-width: 100%;
+    justify-content: center;
+}
+
+.about-contributor {
+    height: 100px;
+    padding: 10px;
+    width: 100px;
+}
+
+.justified-paragraph {
+    margin: 30px 0;
+    text-align: justify;
+  }
+  
+.centered-paragraph {
+    margin: 30px 0;
+    margin-left: 95px;
+    margin-right: 95px;
+    text-align: center;
+}
+
+.team-underline {
+    position: relative;
+}
+
+.team-underline::before {
+    background-color: #ff5959;
+    bottom: 0;
+    content: '';
+    height: 2px;
+    position: absolute;
+    right: 0;
+    transition: width .6s cubic-bezier(.25, 1, .5, 1);
+    width: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+.team-underline:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+}
+}
+
+.hr-class {
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-width: 1px;
+    opacity: 0.1;
+}
+
+.image {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.image-2 {
+    max-width: 60%;
+    max-height: 60%;
+}
+.image-3 {
+    max-width: 40%;
+    max-height: 40%;
+}
+
+.about-contributors-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -10px;
+  }
+  
+  .about-contributor {
+    height: 100px;
+    padding: 10px;
+    width: 100px;
+  }
+  
+  .about-contributor-image {
+    border: 2px solid #ff5959;
+    border-radius: 50%;
+    transition: all .3s ease-in;
+    width: 100%;
+  
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  .team-underline {
+    position: relative;
+    max-width: 200px;
+    
+  }
+  
+  .team-underline::before {
+    background-color: #ff5959;
+    height: 2px;
+    position: absolute;
+    transition: width .6s cubic-bezier(.25, 1, .5, 1);
+    width: relative;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .team-underline:hover::before {
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+
+  .teams-section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -25px;
+    max-width: fit-content;
+  }
+  
+  .team-member-container {
+    height: 130px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+    margin-right: 30px;
+    margin-top: 45px;
+    width: fit-content;
+    text-align: center;
+  }
+  
+  .team-footer {
+    color: black;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .team-link a {
+    text-decoration: none;
+  }
+
+.name-text {
+    padding-left: 15px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+}
+
+#button {
+  display: inline-block;
+  background-color: #f37380;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+  opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  text-decoration: none;
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #f37380;
+}
+#button:active {
+  background-color: #ff5959;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close{
+  margin-top: 5px;
+}
+.message-close:hover {
+  color:#ff5959;
+}
+
+.message-container{
+  background: #fff;
+	border-radius: 10px;
+  margin-right: 100px;
+	box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+	position: relative;
+	font-family: 'Montserrat', sans-serif;
+  margin-left: 100px;
+}
+
+.ddd{
+  max-width: 100%;
+}
+
+@media (max-width: 1399px) {
+	.message-container  {
+		margin-left: 9px;
+    margin-right: 8px;
+	}
+}
+
+@media (max-width: 1199px) {
+	.message-container  {
+		margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: -100px;
+	}
+}
+
+@media (max-width: 968px) {
+	.message-container  {
+		margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -100px;
+	}
+}

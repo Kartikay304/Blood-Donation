@@ -1,2 +1,203 @@
-<%= render 'shared/messages' %>
-        <h1>HELlO</h1>
+<div class="container">
+   <%= render 'shared/messages'%>
+   <div class="page-content mt-4">
+      <div class="form-v10-content">
+         <div class="form-detail rounded", id="myform">
+            <div class="form-left">
+               <h2 class="text-center">All Requests</h2>
+               <hr class="text-danger">
+               <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active" data-bs-interval="2000">
+                        <br>
+                        <h1 class="main-heading text-center">REQUESTS</h1>
+                        <br><br><br><br>
+                     </div>
+                     <% Post.all.order('created_at DESC').limit(50).each  do |post| %>
+                     <div class="carousel-item">
+                        <div class="card text-center shadow bg-white rounder">
+                           <div class="card-header"><i><%= post.username %></i></div>
+                           <div class="card-body">
+                              <p class="card-text"><u><b><%= post.title %></b></u></p>
+                              <p class="card-text"><%= post.description %></p>
+                              <p class="card-text">Blood group : <b><%= post.blood_group %></b></p>
+                           </div>
+                           <div class="card-footer text-muted"><small>Created <%= time_ago_in_words(post.created_at) %> ago, edited <%= time_ago_in_words(post.updated_at) %> ago</small></div>
+                        </div>
+                     </div>
+                     <% end %>
+                     <button class="carousel-control-next" type="button" id="clickButton" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="visually-hidden">Next</span>
+                  </div>
+               </div>
+               <hr class="text-danger">
+               <p class="text-center text-danger"><b>You can click anywhere on the window to go to next post.</b></p>
+            </div>
+            <br>
+            <div class="form-right">
+               <% if Current.user%>
+               <h2 class="text-center">Create Post</h2>
+               <div class="form-row">
+                  <%= form_with model: @post, local: true do |f| %>
+                  <div class="form-row " >
+                     <%= f.text_field :title, placeholder:"Enter Title",class: "form-text" %>
+                  </div>
+                  <div class="form-group">
+                     <div class="form-row form-row-3">
+                        <%= f.text_field :username, value: Current.user.username,class: "form-text" %>
+                     </div>
+                     <div class="form-row form-row-2">
+                        <%= f.text_field :blood_group ,value: Current.user.blood_group,class: "form-text" %>
+                     </div>
+                  </div>
+                  <div class="form-row " >
+                     <%= f.text_field :description, placeholder:"Enter Description",class: "form-text" %>
+                  </div>
+                  <div class="rounded register rights home text-right">
+                     <%= f.submit "Post",class: "register text-color" %>
+                  </div>
+                  <% end %>
+               </div>
+               <% else %>
+               <h2 class="text-center">GEHU BLOOD DONATION</h2>
+               <br>
+               <div class="text-center"><b>TO POST YOUR REQUEST PLEASE LOGIN</b></div>
+               <br>
+               <div class="text-rights donated rounded">
+                  <a class="register text-rights rounded text-center text-color <%= request.path == '/login' ? 'active' : '' %>" href="/login">Login</a>
+               </div>
+               <% end %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="container"id="home-plasma-section">
+    <div class="row center-row">
+        <div class="col-xs col-sm col-md col-lg text-center">
+            <h1 class="main-heading">PLASMA</h1>
+            <p class="centered-paragraph p-text">Plasma is a yellowish liquid in your blood that carries platelets, red blood cells and white blood cells around the body.
+                Plasma makes up approximately 55% of your blood, and contains antibodies, known as immunoglobulins, which fight infection.
+                These antibodies are made into medicines to help people with cancers, rare diseases, immune disorders and genetic conditions.
+            </p>
+            <%= image_tag ("structureofblood.png"),class: "ml-4 col-xs col-sm col-md col-lg image" %>
+            <h3 class="submain-heading">WHO CAN DONATE PLASMA?</h3>
+            <p class="centered-paragraph p-text">Generally, plasma donors must be 18 years of age and weigh at least 110 pounds (50kg). All individuals must pass two separate medical examinations, 
+                a medical history screening and testing for transmissible viruses, before their donated plasma can be used to manufacture plasma protein therapies.
+            </p>
+            <h3 class="submain-heading">PLASMA DONATION PROCESS</h3>
+            <div class="centered-paragraph p-text">
+                <b>Plasma donation has four steps</b><br>
+                <li>A vein is cannulated in one arm. Your blood is collected in a machine using a sterile, disposable system.</li>
+                <li>This machine separates the blood into cells and plasma.</li>
+                <li>The plasma is collected and stored.</li>
+                <li>The blood cells are returned to your body via the system.</li>
+                <br>
+                The procedure for collecting and returning (except for the venous cannulation, of course) is repeated a few times during a plasma donation session. This way, we collect slightly over half litre of plasma.
+            </div>
+            <%= image_tag ("donateplasma.png"), class: "col-xs col-sm col-md col-lg image-2"%>
+        </div>
+    </div>
+    <div class="centered-paragraph p-text"><hr class="hr-class"></div>
+</div>
+<div class="container" id="home-why_give_blood-section">
+    <div class="row center-row">
+        <div class="col-xs col-sm col-md col-lg text-center">
+            <h1 class="main-heading">WHY GIVE BLOOD</h1>
+            <div class="centered-paragraph p-text">Giving blood saves lives. The blood you give is a lifeline in an emergency and for people who need long-term treatments.
+                From one unit of blood, red blood cells can be extracted and used to treat patients who lost blood due to trauma or those who are recovering from surgery. 
+                Plasma, the liquid part of blood, is typically administered to patients with requiring treatment to improve blood clotting. Platelets, a third component, 
+                clot the blood when cuts or other open wounds occur, and are often used in the treatment of patients with cancer or those undergoing organ transplants. 
+                Finally, cryoprecipitated anti-hemophilic factor (AHF) is also used for clotting factors.
+            </div>
+            <%= image_tag ("1bag_3life.png"), class: "col-xs col-sm col-md col-lg image-2"%>
+        </div>
+    </div>
+    <div class="centered-paragraph p-text"><hr class="hr-class"></div>
+</div>
+<div class="container" id="home-who_can_give_blood-section">
+   <div class="row center-row">
+      <div class="col-xs col-sm col-md col-lg text-center">
+        <h1 class="main-heading">WHO CAN GIVE BLOOD</h1>
+        <div class="centered-paragraph p-text">The criteria for donor selection varies from country to country, but blood can be donated by most people who are healthy and do not have an 
+        infection that can be transmitted through their blood.The age at which people are eligible to give blood varies, but is commonly between the ages of 17 and 65. Some countries accept 
+        donations from people from the age of 16 and extend the upper age limit beyond 65 years.Healthy adults can give blood regularly - at least twice a year.<br><br><b>Who can receive your blood?</b></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/B6dAPXpUjCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+   </div>
+   <div class="centered-paragraph p-text"><hr class="hr-class"></div>
+</div>
+<div class="container" id="home-donation_process-section">
+    <div class="row center-row">
+        <div class="col-xs col-sm col-md col-lg text-center">
+            <h1 class="main-heading">DONATION PROCESS</h1>
+            <div class="centered-paragraph p-text"><b>Before you give blood</b><br><br>
+                <li>Check you are able to give blood.</li>
+                <li>Sign in to your online account and go to your dashboard, then fill the blood donation form and the request will send for approval to our admin team.After approval you will receive a 
+                    confirmation email.</li> 
+                <br>
+                <b>When you give blood</b><br><br>
+                The whole process takes about an hour.<br><br>
+                <b>1. Welcome and preparation</b><br>
+                Remember to bring your completed donation safety check form with you, if you received one from us in the past.We will give you 500ml of fluid just before you give blood. Drinking this over 
+                about 5 minutes will help with your well-being during and after donation.
+                <br><br>
+                <b>2. Health screening</b><br>
+                We make sure it is safe for you to donate, and that your blood donation is safe for a patient to receive.
+                We confirm your identity and ask you about the information on your donor health check form; a registered nurse may follow up if necessary.
+                We test a drop of blood from your finger to check the iron levels (haemoglobin) in your blood.
+                If you are not able to donate we will explain why, and may ask you to make another appointment.
+                If you are able to donate you will be asked to sit in a waiting area until you are called to a donation chair. 
+                <br><br>
+                <b>3. Your blood donation</b><br>
+                When you are comfortable on the chair we will ask you to confirm your name, address and date of birth.
+                We examine your arm and place a cuff on your arm to maintain a small amount of pressure during donation (this does not measure blood pressure).
+                We then examine your arm to find a suitable vein and clean it with an antiseptic sponge.
+                We will insert a needle in your arm which will collect your blood into a blood bag with your unique donor number.
+                You should not feel any discomfort or pain. If you do, tell a member of staff.
+                A scale weighs the blood and stops when you have donated 470ml (or just under a pint). This usually takes between 5-10 minutes.
+                The needle will be removed and a sterile dressing applied to your arm.
+            </div>
+            <%= image_tag ("blooddonation-process.png"), class: "col-xs col-sm col-md col-lg image-3"%>
+            <div class="centered-paragraph p-text"><h5 class="submain-heading">How long does blood last after it's been donated?</h5>
+                <b>Blood components have a limited shelf life:</b>
+                <li>Red blood cells can be stored for up to 35 days</li>
+                <li>Platelets can be stored for up to 7 days</li>
+                <li>Plasma can be stored for up to 3 years</li>
+                <b>We only collect what we need to avoid wasting any donations</b>
+            </div><br>
+             <%= image_tag ("blood-plasama-platelets-timeperiod.png"), class: "col-xs col-sm col-md col-lg image-2"%>
+        </div>
+    </div>
+    <div class="centered-paragraph p-text"><hr class="hr-class"></div>
+</div>
+<div class="container" id="home-about-section">
+   <div class="row center-row">
+      <div class="col-xs col-sm col-md col-lg text-center">
+         <h1 class="main-heading">ABOUT</h1>
+         <p class="main-description">Learn about the people behind the project</p>
+         <div class="centered-paragraph p-text">THis website is a project developed by students at GEHU. It aims to provide a platform where people can  donate and receive blood. 
+         While users can also post requests for blood, they can also chat with each other in the provided chatrooms.This is an open-source project, we are actively working to add more features and make user interface as simple as possible. Checkout the contribute page for more detail.</div>
+         <h3 class="submain-heading">CORE TEAM</h3>
+         <div class="main-description">BloodDonation is lead by a team that is dedicated to innovation and excellence.
+            <div class="about-contributors-section">
+            <% @cores.each do |member| %>
+               <div class="team-member-container team-link">
+                  <div class="team-underline text-center">
+                     <a target="_blank" href="<%= member[:link] %>"><%= image_tag member[:img], :class => "about-contributor-image " %><p class="team-footer underline name-text" ><%= member[:name] %></p></a>
+                  </div>
+               </div>
+            <% end %>
+            </div>
+            <br><br>
+         </div>
+      </div>
+   </div>
+</div>
+<br><br><br><br><br><br><br>
+<script >
+   window.onclick = function() {
+       document.getElementById('clickButton').click();
+   }
+</script>

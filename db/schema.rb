@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_174804) do
+ActiveRecord::Schema.define(version: 2021_12_22_121137) do
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "username"
+    t.string "blood_group"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "userdonations", force: :cascade do |t|
     t.string "username"
     t.string "blood_group"
     t.string "camp"
     t.integer "donated"
+    t.integer "received"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

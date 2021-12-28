@@ -420,7 +420,7 @@ body {
 	.page-content {
 		margin-top: -80px;
 	}
-	.donated {
+	.donated,.home {
 		margin-left: 95px;
 	}
 }
@@ -450,5 +450,10 @@ body {
 	}
 	.donated {
 		margin-left: 135px;;
+	}
+}
+@media (min-width: 1200px) {
+	.home {
+		margin-left: 100px;;
 	}
 }

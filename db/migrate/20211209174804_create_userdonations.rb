@@ -5,6 +5,7 @@ class CreateUserdonations < ActiveRecord::Migration[6.1]
       t.string :blood_group
       t.string :camp
       t.integer :donated
+      t.integer :received
       t.timestamps
     end
   end
