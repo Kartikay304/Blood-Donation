@@ -9,6 +9,7 @@ class DashboardController < ApplicationController
         @ab=Userdonation.where(blood_group: 'AB-').sum(:donated)-Userdonation.where(blood_group: 'AB-').sum(:received)
         @O=Userdonation.where(blood_group: 'O+').sum(:donated)-Userdonation.where(blood_group: 'O+').sum(:received)
         @o=Userdonation.where(blood_group: 'O-').sum(:donated)-Userdonation.where(blood_group: 'O-').sum(:received)
+        @S=@A+@a+@B+@b+@AB+@ab+@O+@o
     end
 
     def create
