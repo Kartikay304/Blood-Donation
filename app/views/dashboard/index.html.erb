@@ -185,44 +185,36 @@
             <div class="col-md-12">
                 <div class="skills_section text-center">
                     <div class="skills-area">
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@A/@S)*100 %>" data-p="<%=@A%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@A%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                A+
+                        <div class="single-skill"><h2>A+</h2>
+                            <div class="circlechart" data-percentage="<%= (@A/@S)*100 %>" data-blood_quantity="<%= @A %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@A%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@a/@S)*100 %>" data-p="<%=@a%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@a%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                A-
+                        <div class="single-skill"><h2>A-</h2>
+                            <div class="circlechart" data-percentage="<%= (@a/@S)*100 %>" data-blood_quantity="<%= @a %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@a%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%=(@B/@S)*100  %>" data-p="<%=@B%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@B%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                B+
+                        <div class="single-skill"><h2>B+</h2>
+                            <div class="circlechart" data-percentage="<%=(@B/@S)*100  %>" data-blood_quantity="<%= @B %>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@B%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@b/@S)*100 %>" data-p="<%=@b%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@b%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                               B-
+                        <div class="single-skill"><h2>B-</h2>
+                            <div class="circlechart" data-percentage="<%= (@b/@S)*100 %>" data-blood_quantity="<%= @b %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@b%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@AB/@S)*100 %>" data-p="<%=@AB%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@AB%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                AB+
+                        <div class="single-skill"><h2>AB+</h2>
+                            <div class="circlechart" data-percentage="<%= (@AB/@S)*100 %>" data-blood_quantity="<%= @AB %>"  ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@AB%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@ab/@S)*100 %>" data-p="<%=@ab%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@ab%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                AB-
+                        <div class="single-skill"><h2>AB-</h2>
+                            <div class="circlechart" data-percentage="<%= (@ab/@S)*100 %>" data-blood_quantity="<%= @ab %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><<%=@ab%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@O/@S)*100 %>" data-p="<%=@O%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@O%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                O+
+                        <div class="single-skill"><h2>O+</h2>
+                            <div class="circlechart" data-percentage="<%= (@O/@S)*100 %>" data-blood_quantity="<%= @O %>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@O%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
-                        <div class="single-skill">
-                            <div class="circlechart" data-percentage="<%= (@o/@S)*100 %>" data-p="<%=@o%>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@o%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
-                                O-
+                        <div class="single-skill"><h2>O-</h2>
+                            <div class="circlechart" data-percentage="<%= (@o/@S)*100 %>" data-blood_quantity="<%= @o %>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@o%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
                             </text> </g></svg></div>
                         </div>
                     </div>
@@ -233,13 +225,13 @@
 </section>
 <br><br><br><br>
 <script>
-    function makesvg(p,percentage, inner_text=""){
+    function makesvg(percentage,blood_quantity, inner_text=""){
         var abs_percentage = Math.abs(percentage).toString();
         var percentage_str = percentage.toString();
         var classes = ""
-        if(p < 1000){
+        if(blood_quantity < 2000){
             classes = "danger-stroke circle-chart__circle--negative";
-        } else if(p > 1000 && percentage <= 3000){
+        } else if(blood_quantity> 2000 && blood_quantity <= 4000){
             classes = "warning-stroke";
         } else{
             classes = "success-stroke";
@@ -249,7 +241,7 @@
             + '<circle class="circle-chart__circle '+classes+'"'
             + 'stroke-dasharray="'+ abs_percentage+',100"    cx="16.9" cy="16.9" r="15.9" />'
             + '<g class="circle-chart__info">'
-            + '   <text class="circle-chart__percent" x="17.9" y="15.5">'+percentage_str+'%</text>';
+            + '   <text class="circle-chart__percent" x="17.9" y="15.5">'+percentage+'%</text>';
 
         if(inner_text){
             svg += '<text class="circle-chart__subline" x="16.91549431" y="22">'+inner_text+'</text>'
@@ -264,8 +256,8 @@
             this.each(function() {
                 var percentage = $(this).data("percentage");
                 var inner_text = $(this).text();
-                var p=$(this).data("p");
-                $(this).html(makesvg(p,percentage, inner_text));
+                var blood_quantity=$(this).data("blood_quantity");
+                $(this).html(makesvg(percentage,blood_quantity,inner_text));
             });
             return this;
         };
