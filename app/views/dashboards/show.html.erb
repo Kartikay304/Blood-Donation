@@ -1,0 +1,22 @@
+<div class="container">
+    <% Dashboard.all.each do |t| %>
+        <div class="row justify-content-md-center">
+            <div class="col-5 mt-4">
+                <div class="card text-center shadow mb-5 bg-white rounder">
+                    <div class="card-header"><i>by Kartikay Kala</i></div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= t.username%></h5>
+                        <p class="card-text"><%= t.id %></p>
+                        <p class="card-text"><%= t.blood_group %></p>
+                        <p class="card-text"><%= t.donated %></p>
+                        <p class="card-text"><%= t.received %></p>
+                        <p class="card-text"><%= t.approved %></p>
+                        <p class="card-text"><%= t.camp %></p>
+                        <%=  link_to 'Edit', edit_dashboard_path(t.id), class: "btn btn-outline-info" %>
+                    </div>
+                    <div class="card-footer text-muted"><small>Created <%= time_ago_in_words(t.created_at) %> ago, edited <%= time_ago_in_words(t.updated_at) %> ago</small></div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

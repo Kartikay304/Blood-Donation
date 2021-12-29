@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   #dashboard
   get "/dashboards/:id", to: "dashboards#index"
+  get "/dashboards", to: "dashboards#show"
   post "/dashboards/:id", to: "dashboards#index"
   resources :dashboards, except: [:index]
 

@@ -1,5 +1,9 @@
 class DashboardsController < ApplicationController
 
+    def show
+        @dashboard=Dashboard.all
+    end
+
     def index
         @dashboard=Dashboard.new
         @A=0+Dashboard.where(blood_group: 'A+', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'A+', approved: '1').sum(:received)
@@ -14,7 +18,7 @@ class DashboardsController < ApplicationController
     end
 
     def edit
-        @dashboard = Dashboard.find(Current.user.id)
+        @dashboard = Dashboard.find(params[:id])
     end
 
     def update
