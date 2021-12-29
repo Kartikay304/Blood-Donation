@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #signup
   get "/signup", to: "users#signup"
   post "/signup", to: "users#signup"
+
   resources :users, except: [:signup]
 
   #signin
@@ -20,9 +21,10 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   #dashboard
-  get "/dashboard/:id", to: "dashboard#index"
-  post "/dashboard/:id", to: "dashboard#create"
-  resources :dashboard, except: [:dashboard]
+  get "/dashboards/:id", to: "dashboards#index"
+  get "/dashboards", to: "dashboards#show"
+  post "/dashboards/:id", to: "dashboards#index"
+  resources :dashboards, except: [:index]
 
   #posts
   post "/", to: "blooddonation#create"

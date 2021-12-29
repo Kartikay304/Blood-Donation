@@ -10,23 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_22_121137) do
+ActiveRecord::Schema.define(version: 2021_12_29_150554) do
+
+  create_table "dashboards", force: :cascade do |t|
+    t.string "username"
+    t.string "blood_group"
+    t.string "camp"
+    t.integer "donated"
+    t.integer "received"
+    t.integer "approved"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "username"
     t.string "blood_group"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "userdonations", force: :cascade do |t|
-    t.string "username"
-    t.string "blood_group"
-    t.string "camp"
-    t.integer "donated"
-    t.integer "received"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_12_22_121137) do
     t.string "code"
     t.integer "phone_no"
     t.string "email"
+    t.integer "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

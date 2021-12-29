@@ -1,0 +1,296 @@
+<div class="container">
+   <%= render 'shared/messages'%><%= render 'shared/errors', obj: @dashboard%></div>
+    <div class="page-content">
+        <div class="form-v10-content">
+            <%= form_with model: @user, class: "form-detail rounded", id: "myform", local: true do |f| %>
+                <div class="form-left">
+                    <h2>General Infomation</h2>
+                    <div class="form-row " >
+                        <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <%= f.text_field :first_name, :value => Current.user.first_name, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-2">
+                            <%= f.text_field :last_name, :value => Current.user.last_name, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <%= f.text_field :age, :value => Current.user.age, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-3">
+                            <%= f.text_field :blood_group, :value => Current.user.blood_group, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-4">
+                            <%= f.text_field :gender, :value => Current.user.gender, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-lefts rounded">
+                        <a class="register_2 text-rights rounded text-center text-color <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
+                    </div>
+                    <div class="rounded text-rights">
+                        <%= link_to "Update User", edit_user_path(Current.user.id),class: "register text-lefts rounded text-center text-color" %>
+                    </div>
+                </div>
+                <div class="form-right">
+                    <h2>Contact Details</h2>
+                    <div class="form-row">
+                        <%= f.text_field :street, :value => Current.user.street, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-row">
+                        <%= f.text_field :additional_info, :value => Current.user.additional_info, disabled: :true,class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                        <%= f.text_field :pin_code, :value => Current.user.pin_code, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-2">
+                        <%= f.text_field :city, :value => Current.user.city, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <%= f.text_field :country, :value => Current.user.country, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
+                        </div>
+                        <div class="form-row form-row-2">
+                        <%= f.text_field :phone_no, :value => Current.user.phone_no, disabled: :true,class: "form-text text-muted" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <%= f.email_field :email, :value => Current.user.email, disabled: :true, class: "form-text text-muted" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<% if Current.user.admin %>
+<h1 class="main-heading text-center">ADMIN PANEL</h1> 
+<div class="page-content">
+        <div class="form-v10-content text-center">
+            <%= form_with model: @dashboard, class: "form-detail rounded", id: "myform", local: true do |f| %>
+                <div class="form-left">
+                    <h3 class="submain-heading">ADD BLOOD</h3>
+                    <div class="form-row">
+                        <%= f.hidden_field  :username,:value => 'admin', type: :hidden,class: "form-text" %>
+                        <%= f.select :blood_group, ["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                        <%= f.select :donated, ["470 ml"], class: "form-text text-secondary" %>
+                        <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                        <%= f.hidden_field  :approved, :value => 1, type: :hidden,class: "form-text text-secondary" %>
+                        <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
+                    </div>
+                    <div class="rounded register rights donated text-right admin-btn">
+                        <%= f.submit "Donate",class: "register text-color" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+   </div>
+<% else %>
+    <div class="page-content">
+        <div class="form-v10-content">
+            <%= form_with model: @dashboard, class: "form-detail rounded", id: "myform", local: true do |f| %>
+                <div class="form-left">
+                    <h2>Donate Blood</h2>
+                    <div class="form-row">
+                        <%= f.select :username, [Current.user.username], class: "form-text text-secondary" %>
+                    </div>
+                    <div class="form-row">
+                        <%= f.select :blood_group, [Current.user.blood_group], class: "form-text text-secondary" %>
+                    </div>
+                    <div class="form-row">
+                        <%= f.select :donated, ["470 ml"], class: "form-text text-secondary" %>
+                        <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                         <%= f.hidden_field  :approved, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                    </div>
+                    <div class="form-row">
+                        <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
+                    </div>
+                    <div class="rounded register rights donated text-right">
+                        <%= f.submit "Donate",class: "register text-color" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-right">
+                    <h2>Key Notes</h2><br><br>
+                    <div class="form-row">Healthy adults (18-75 years) who meet donation eligibility criteria can donate blood. The procedure is safe and relatively painless.
+                        <ul>
+                            <li>During a regular donation, you will give around 470ml of whole blood. This is about 8% of the average adult's blood volume.</li>
+                            <li>The body replaces this volume within 24 to 48 hours, and replenishes red blood cells in 10 to 12 weeks.</li>
+                        </ul>
+                    </div>
+                    <br><br><br><br>
+                </div>
+            <% end %>
+        </div> 
+    </div>
+    <div class="page-content">
+        <div class="form-v10-content">
+            <%= form_with model: @dashboard, class: "form-detail rounded", id: "myform", local: true do |f| %>
+                <div class="form-left">
+                    <h2>Receive Blood</h2>
+                    <div class="form-row">
+                        <%= f.select :username, [Current.user.username], class: "form-text text-secondary" %>
+                    </div>
+                        <% if Current.user.blood_group == 'A+' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["A+","A+","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text " %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'A-' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["A-","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'B+' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["B+","B-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'B-' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["B+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'AB+' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'AB-' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["AB-","A-","B-","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'O+' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                        <% if Current.user.blood_group == 'O-' %>
+                            <div class="form-row">
+                                <%= f.select :blood_group, ["O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
+                            </div>
+                        <% end %>
+                    <div class="form-row">
+                        <%= f.text_field :received, placeholder: "Enter the required blood in ml", class: "form-text" %>
+                        <%= f.hidden_field  :donated, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                        <%= f.hidden_field  :approved, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                    </div>
+                    <div class="form-row">
+                        <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
+                    </div>
+                    <div class="rounded register rights donated text-right">
+                        <%= f.submit "Receive",class: "register text-color" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-right">
+                    <h2>Key Notes</h2><br><br>
+                    <div class="form-row">Healthy adults (18-75 years) who meet donation eligibility criteria can donate blood. The procedure is safe and relatively painless.
+                    <ul>
+                            <li>During a regular donation, you will give around 470ml of whole blood. This is about 8% of the average adult's blood volume.</li>
+                            <li>The body replaces this volume within 24 to 48 hours, and replenishes red blood cells in 10 to 12 weeks.</li>
+                        </ul>
+                    </div>
+                    <br><br><br><br>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<% end %>
+<section class="section skills rounded row center-row ">
+    <div class="container form-v10-content ttr">
+        <div class=" col-xs col-sm col-md col-lg text-center">
+            <div class="skills-area">
+                <div class="single-skill"><h2>A+</h2>
+                    <div class="circlechart" data-percentage="<%= @A*100/@S %>" data-blood_quantity="<%= @A %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@A%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>A-</h2>
+                    <div class="circlechart" data-percentage="<%= @a*100/@S %>" data-blood_quantity="<%= @a %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@a%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>B+</h2>
+                    <div class="circlechart" data-percentage="<%=@B*100/@S  %>" data-blood_quantity="<%= @B %>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@B%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>B-</h2>
+                    <div class="circlechart" data-percentage="<%= @b*100/@S  %>" data-blood_quantity="<%= @b %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@b%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>AB+</h2>
+                    <div class="circlechart" data-percentage="<%= @AB*100/@S  %>" data-blood_quantity="<%= @AB %>"  ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@AB%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>AB-</h2>
+                    <div class="circlechart" data-percentage="<%= @ab*100/@S  %>" data-blood_quantity="<%= @ab %>" ><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@ab%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>O+</h2>
+                    <div class="circlechart" data-percentage="<%= @O*100/@S %>" data-blood_quantity="<%= @O %>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@O%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+                <div class="single-skill"><h2>O-</h2>
+                    <div class="circlechart" data-percentage="<%= @o*100/@S %>" data-blood_quantity="<%= @o %>"><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg"><circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9"></circle><circle class="circle-chart__circle success-stroke" stroke-dasharray="92,100" cx="16.9" cy="16.9" r="15.9"></circle><g class="circle-chart__info">   <text class="circle-chart__percent" x="17.9" y="15.5"><%=@o%> ml</text><text class="circle-chart__subline" x="16.91549431" y="22">
+                    </text> </g></svg></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br><br>
+<%if Current.user.admin == 1 %>
+<div class="rounded text-rights">
+                        <%= link_to "Update User", edit_dashboard_path(Current.user.id),class: "register text-lefts rounded text-center text-color" %>
+                    </div> <% end %>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script>
+    function makesvg(percentage,blood_quantity, inner_text=""){
+        var abs_percentage = Math.abs(percentage).toString();
+        var percentage_str = percentage.toString();
+        var classes = ""
+        if(blood_quantity < 2000){
+            classes = "danger-stroke circle-chart__circle--negative";
+        } else if(blood_quantity> 2000 && blood_quantity <= 4000){
+            classes = "warning-stroke";
+        } else{
+            classes = "success-stroke";
+        }
+        var svg = '<svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg">'
+            + '<circle class="circle-chart__background" cx="16.9" cy="16.9" r="15.9" />'
+            + '<circle class="circle-chart__circle '+classes+'"'
+            + 'stroke-dasharray="'+ abs_percentage+',100"    cx="16.9" cy="16.9" r="15.9" />'
+            + '<g class="circle-chart__info">'
+            + '   <text class="circle-chart__percent" x="17.9" y="15.5">'+percentage+'%</text>';
+
+        if(inner_text){
+            svg += '<text class="circle-chart__subline" x="16.91549431" y="22">'+inner_text+'</text>'
+        }
+        
+        svg += ' </g></svg>';
+        
+        return svg
+    }
+    (function( $ ) {
+        $.fn.circlechart = function() {
+            this.each(function() {
+                var percentage = $(this).data("percentage");
+                var inner_text = $(this).text();
+                var blood_quantity=$(this).data("blood_quantity");
+                $(this).html(makesvg(percentage,blood_quantity,inner_text));
+            });
+            return this;
+        };
+
+    }( jQuery ));
+
+    $(function () {
+        $('.circlechart').circlechart();
+    });
+</script>
