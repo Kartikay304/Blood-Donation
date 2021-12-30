@@ -1,22 +1,157 @@
-<div class="container">
-    <% Dashboard.all.each do |t| %>
-        <div class="row justify-content-md-center">
-            <div class="col-5 mt-4">
-                <div class="card text-center shadow mb-5 bg-white rounder">
-                    <div class="card-header"><i>by Kartikay Kala</i></div>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= t.username%></h5>
-                        <p class="card-text"><%= t.id %></p>
-                        <p class="card-text"><%= t.blood_group %></p>
-                        <p class="card-text"><%= t.donated %></p>
-                        <p class="card-text"><%= t.received %></p>
-                        <p class="card-text"><%= t.approved %></p>
-                        <p class="card-text"><%= t.camp %></p>
-                        <%=  link_to 'Edit', edit_dashboard_path(t.id), class: "btn btn-outline-info" %>
-                    </div>
-                    <div class="card-footer text-muted"><small>Created <%= time_ago_in_words(t.created_at) %> ago, edited <%= time_ago_in_words(t.updated_at) %> ago</small></div>
-                </div>
+<div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE BLOOD DONATION REQUEST</h3><br>
+    <div class="wrap-table100 col-xs col-sm col-md col-lg">
+        <div class="table100 ver1 m-b-110 ">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Username</th>
+                            <th class="cell100 column2">Blood-Group</th>
+                            <th class="cell100 column3">Blood-Donated</th>
+                            <th class="cell100 column4">Approve</th>
+                            <th class="cell100 column5">Camp</th>
+                            <th class="cell100 column6">Created-At</th>
+                            <th class="cell100 column7">Updated-At</th>
+                            <th class="cell100 column8">EDIT</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        <% Dashboard.all.each do |t| if t.approved == 0 && t.received == 0%>
+                            <tr class="row100 body">
+                                <td class="cell100 column1"><%= t.username%></td>
+                                <td class="cell100 column2"><%= t.blood_group %></td>
+                                <td class="cell100 column3"><%= t.donated %> ml</td>
+                                <td class="cell100 column4"><%= t.approved %></td>
+                                <td class="cell100 column5"><%= t.camp %></td>
+                                <td class="cell100 column6"><%= time_ago_in_words(t.created_at) %> ago</td>
+                                <td class="cell100 column7"><%= time_ago_in_words(t.updated_at) %> ago</td>
+                                <td class="cell100 column8"><%=  link_to 'Edit', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+                            </tr>
+                        <% end %><% end %>
+                    </tbody>
+                </table>
             </div>
         </div>
-    <% end %>
+    </div>
 </div>
+
+<div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE BLOOD RECEIVED REQUEST</h3><br>
+    <div class="wrap-table100 col-xs col-sm col-md col-lg">
+        <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Username</th>
+                            <th class="cell100 column2">Blood-Group</th>
+                            <th class="cell100 column3">Blood-Received</th>
+                            <th class="cell100 column4">Approve</th>
+                            <th class="cell100 column5">Camp</th>
+                            <th class="cell100 column6">Created-At</th>
+                            <th class="cell100 column7">Updated-At</th>
+                            <th class="cell100 column8">EDIT</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        <% Dashboard.all.each do |t| if (t.approved == 0 && t.donated == 0)%>
+                            <tr class="row100 body">
+                                <td class="cell100 column1"><%= t.username%></td>
+                                <td class="cell100 column2"><%= t.blood_group %></td>
+                                <td class="cell100 column3"><%= t.received %> ml</td>
+                                <td class="cell100 column4"><%= t.approved %></td>
+                                <td class="cell100 column5"><%= t.camp %></td>
+                                <td class="cell100 column6"><%= time_ago_in_words(t.created_at) %> ago</td>
+                                <td class="cell100 column7"><%= time_ago_in_words(t.updated_at) %> ago</td>
+                                <td class="cell100 column8"><%=  link_to 'Edit', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+                            </tr>
+                        <% end %><% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE LOGS</h3><br>
+    <div class="wrap-table100 col-xs col-sm col-md col-lg">
+        <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Username</th>
+                            <th class="cell100 column2">Blood-Group</th>
+                            <th class="cell100 column3">Blood-Donated</th>
+                            <th class="cell100 column4">Blood-Received</th>
+                            <th class="cell100 column10">Approve</th>
+                            <th class="cell100 column11">Camp</th>
+                            <th class="cell100 column12">Created-At</th>
+                            <th class="cell100 column9">Updated-At</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        <% Dashboard.all.each do |t| if t.approved== 1%>
+                            <tr class="row100 body">
+                                <td class="cell100 column1"><%= t.username%></td>
+                                <td class="cell100 column2"><%= t.blood_group %></td>
+                                <td class="cell100 column3"><%= t.donated %> ml</td>
+                                <td class="cell100 column4"><%= t.received %> ml</td>
+                                <td class="cell100 column10"><%= t.approved %></td>
+                                <td class="cell100 column11"><%= t.camp %></td>
+                                <td class="cell100 column12"><%= time_ago_in_words(t.created_at) %> ago</td>
+                                <td class="cell100 column9"><%= time_ago_in_words(t.updated_at) %> ago</td>
+                            </tr>
+                        <% end %><% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+                                        
+<br><br><br><br><br><br><br><br>
+<script>
+    $('.js-pscroll').each(function(){
+        var ps = new PerfectScrollbar(this);
+
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+</script>
+
+<script>
+    (function ($) {
+	"use strict";
+	$('.column100').on('mouseover',function(){
+		var table1 = $(this).parent().parent().parent();
+		var table2 = $(this).parent().parent();
+		var verTable = $(table1).data('vertable')+"";
+		var column = $(this).data('column') + ""; 
+
+		$(table2).find("."+column).addClass('hov-column-'+ verTable);
+		$(table1).find(".row100.head ."+column).addClass('hov-column-head-'+ verTable);
+	});
+
+	$('.column100').on('mouseout',function(){
+		var table1 = $(this).parent().parent().parent();
+		var table2 = $(this).parent().parent();
+		var verTable = $(table1).data('vertable')+"";
+		var column = $(this).data('column') + ""; 
+
+		$(table2).find("."+column).removeClass('hov-column-'+ verTable);
+		$(table1).find(".row100.head ."+column).removeClass('hov-column-head-'+ verTable);
+	});
+})(jQuery);
+</script>
