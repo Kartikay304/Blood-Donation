@@ -327,6 +327,22 @@ body {
 	}
   }
 
+  .home-btn:hover {
+	transition: all .3s ease-in;
+	background: #ff5959;
+	text-decoration: none;
+	color: white;
+	  
+  }
+
+  .update-btn:hover {
+	transition: all .3s ease-in;
+	background: #42b983;
+	text-decoration: none;
+	color: white;
+	  
+  }
+
 .register_2 {
 	width: 272px;
 	display: inline-block;

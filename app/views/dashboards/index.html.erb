@@ -1,97 +1,111 @@
-<div class="container">
-   <%= render 'shared/messages'%><%= render 'shared/errors', obj: @dashboard%></div>
-    <div class="page-content">
-        <div class="form-v10-content">
-            <%= form_with model: @user, class: "form-detail rounded", id: "myform", local: true do |f| %>
-                <div class="form-left">
-                    <h2>General Infomation</h2>
-                    <div class="form-row " >
-                        <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
+<div class="container"> 
+   <%= render 'shared/messages'%><%= render 'shared/errors', obj: @dashboard%>
+</div>
+<div class="container" id="page-content">
+    <div class="row container d-flex justify-content-center">
+        <div class="col-xl-8 col-md-8">
+            <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                    <div class="col-sm-4 bg-c-lite-green user-profile"><div class="jumbotron vertical-center bg-transparent">
+                        <div class="card-block text-center text-white">
+                            <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
+                            <h6 class="f-w-600">
+                                <% if Current.user.admin == 1 %>
+                                    <span class="badge badge-danger">ADMIN</span> <%= Current.user.username %>
+                                <% else %>
+                                    <%= Current.user.username %>
+                                <% end %>
+                            </h6>
+                            <p><b>[ <%= Current.user.blood_group %> ]</b></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                        </div></div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-row form-row-1">
-                            <%= f.text_field :first_name, :value => Current.user.first_name, disabled: :true, class: "form-text text-muted" %>
+                    <div class="col-sm-8">
+                        <div class="card-block">
+                            <h6 class="m-b-20 p-b-5 b-b-default f-w-600">General Information</h6>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Age</p>
+                                    <h6 class="text-muted f-w-400"><%= Current.user.age %></h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Gender</p>
+                                    <h6 class="text-muted f-w-400"><%= Current.user.gender %></h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Full Name</p>
+                                    <h6 class="text-muted f-w-400"><%= Current.user.first_name %><%= Current.user.last_name %></h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Phone</p>
+                                    <h6 class="text-muted f-w-400"><%= Current.user.phone_no %></h6>
+                                </div>
+                            </div>
+                            <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Contact Details</h6>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Email</p>
+                                    <h6 class="text-muted f-w-400"><%= Current.user.email %></h6>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Address</p>
+                                    <h6 class="text-muted f-w-400"><%= Current.user.country %>, <%= Current.user.city %>, <%= Current.user.pin_code %>, <%= Current.user.street %></h6>
+                                </div>
+                            </div> 
+                            <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Additional Details</h6>
+                                <h6 class="text-muted f-w-400"><%= Current.user.additional_info %></h6>
+                            </div>
                         </div>
-                        <div class="form-row form-row-2">
-                            <%= f.text_field :last_name, :value => Current.user.last_name, disabled: :true, class: "form-text text-muted" %>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <%= f.text_field :age, :value => Current.user.age, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row form-row-3">
-                            <%= f.text_field :blood_group, :value => Current.user.blood_group, disabled: :true, class: "form-text text-muted" %>
-                        </div>
-                        <div class="form-row form-row-4">
-                            <%= f.text_field :gender, :value => Current.user.gender, disabled: :true, class: "form-text text-muted" %>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="text-lefts rounded">
-                        <a class="register_2 text-rights rounded text-center text-color <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
-                    </div>
-                    <div class="rounded text-rights">
-                        <%= link_to "Update User", edit_user_path(Current.user.id),class: "register text-lefts rounded text-center text-color" %>
+                        <p class="text-white">user</p>
+                        <form>
+                            <div class="form-group row">
+                            <div class="col-sm-6">
+                                <a class="form-control btn btn-outline-danger home-btn <%= request.path == '/' ? 'active' : '' %>" href="/">Home</a>
+                            </div>
+                                <div class="col-sm-6">
+                                    <%= link_to "Update", edit_user_path(Current.user.id),class: "form-control  update-btn btn btn-outline-success" %>
+                                </div>
+                            </div>
+                        </form>
+                         <% if Current.user.admin == 1 %>
+                            <h3 class="m-b-20 p-b-5 b-b-default f-w-600 text-center text-danger bg-red">ADMIN PANEL</h3>
+                            <%= form_with model: @dashboard, local: true do |f| %>
+                                <%= f.hidden_field  :username,:value => 'admin', type: :hidden,class: "form-text" %>
+                                <%= f.hidden_field  :approved, :value => 1, type: :hidden,class: "form-text text-secondary" %>
+                                <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                                <%= f.hidden_field  :user_id, :value => Current.user.id, type: :hidden,class: "form-text text-secondary" %>
+                                <div class="form-group row">
+                                    <%= f.label :blood_group,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.select :blood_group, ["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= f.label :donated,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :donated, placeholder: "Enter blood amount", class: "form-text text-secondary form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= f.label :camp,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-control"} %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <%= f.submit "Donate",class: "form-control btn btn-outline-danger home-btn" %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
                     </div>
                 </div>
-                <div class="form-right">
-                    <h2>Contact Details</h2>
-                    <div class="form-row">
-                        <%= f.text_field :street, :value => Current.user.street, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-row">
-                        <%= f.text_field :additional_info, :value => Current.user.additional_info, disabled: :true,class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row form-row-1">
-                        <%= f.text_field :pin_code, :value => Current.user.pin_code, disabled: :true, class: "form-text text-muted" %>
-                        </div>
-                        <div class="form-row form-row-2">
-                        <%= f.text_field :city, :value => Current.user.city, disabled: :true, class: "form-text text-muted" %>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <%= f.text_field :country, :value => Current.user.country, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row form-row-1">
-                            <%= f.text_field :username, :value => Current.user.username, disabled: :true, class: "form-text text-muted" %>
-                        </div>
-                        <div class="form-row form-row-2">
-                        <%= f.text_field :phone_no, :value => Current.user.phone_no, disabled: :true,class: "form-text text-muted" %>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <%= f.email_field :email, :value => Current.user.email, disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                </div>
-            <% end %>
+            </div>
         </div>
     </div>
-<% if Current.user.admin %>
-<h1 class="main-heading text-center">ADMIN PANEL</h1> 
-<div class="page-content">
-        <div class="form-v10-content text-center">
-            <%= form_with model: @dashboard, class: "form-detail rounded", id: "myform", local: true do |f| %>
-                <div class="form-left">
-                    <h3 class="submain-heading">ADD BLOOD</h3>
-                    <div class="form-row">
-                        <%= f.hidden_field  :username,:value => 'admin', type: :hidden,class: "form-text" %>
-                        <%= f.select :blood_group, ["A+","A-","B+","B-","AB+","AB-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text" %>
-                        <%= f.select :donated, ["470 ml"], class: "form-text text-secondary" %>
-                        <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
-                        <%= f.hidden_field  :approved, :value => 1, type: :hidden,class: "form-text text-secondary" %>
-                        <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
-                    </div>
-                    <div class="rounded register rights donated text-right admin-btn">
-                        <%= f.submit "Donate",class: "register text-color" %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-   </div>
-<% else %>
+</div>
+<% if Current.user.admin != 1 %>
     <div class="page-content">
         <div class="form-v10-content">
             <%= form_with model: @dashboard, class: "form-detail rounded", id: "myform", local: true do |f| %>
@@ -107,6 +121,7 @@
                         <%= f.select :donated, ["470 ml"], class: "form-text text-secondary" %>
                         <%= f.hidden_field  :received, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                          <%= f.hidden_field  :approved, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                         <%= f.text_field  :user_id, :value => Current.user.id, type: :hidden,class: "form-text text-secondary" %>
                     </div>
                     <div class="form-row">
                         <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
@@ -181,6 +196,7 @@
                         <%= f.text_field :received, placeholder: "Enter the required blood in ml", class: "form-text" %>
                         <%= f.hidden_field  :donated, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                         <%= f.hidden_field  :approved, :value => 0, type: :hidden,class: "form-text text-secondary" %>
+                        <%= f.hidden_field  :user_id, :value => Current.user.id, type: :hidden,class: "form-text text-secondary" %>
                     </div>
                     <div class="form-row">
                         <%= f.select :camp ,["Graphic Era University ( Hill )","Graphic Era University ( Deemed )"],{prompt: "Select a camp"},{class: "form-text"} %>
@@ -244,12 +260,7 @@
         </div>
     </div>
 </section>
-<br><br><br><br>
-<%if Current.user.admin == 1 %>
-<div class="rounded text-rights">
-                        <%= link_to "Update User", edit_dashboard_path(Current.user.id),class: "register text-lefts rounded text-center text-color" %>
-                    </div> <% end %>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <script>
     function makesvg(percentage,blood_quantity, inner_text=""){
         var abs_percentage = Math.abs(percentage).toString();

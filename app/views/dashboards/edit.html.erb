@@ -1,42 +1,99 @@
-<div class="container">
-   <%= render 'shared/messages'%></div>
-   <h3 class="submain-heading text-center">APPROVE REQUEST</h3>
-   <div class= "container">
-        <div class="form-v10-content">
-            <%= form_with model: @dashboard, class: "form-detail rounded", id: "myform", local: true do |f| %>
-                <div class="form-left">
-                    <h2>General Infomation</h2>
-                    <div class="form-row " >
-                        <%= f.text_field :username, placeholder:"Username", disabled: :true, class: "form-text text-muted" %>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row form-row-1">
-                            <%= f.text_field :blood_group, placeholder:"First Name",class: "form-text" %>
+<div class="container" id="page-content">
+    <div class="row container d-flex justify-content-center">
+        <div class="col-xl-8 col-md-8">
+            <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile"><div class="jumbotron vertical-center bg-transparent">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
+                                <%= form_with model: @user, local: true do %>
+                                <h6 class="f-w-600"><%= @user.username %></h6>
+                                <p><b>[ <%= @user.blood_group %> ]</b></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                            </div></div>
                         </div>
-                        <div class="form-row form-row-2">
-                            <%= f.text_field :donated, placeholder:"Last Name",class: "form-text" %>
-                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">General Information</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Age</p>
+                                        <h6 class="text-muted f-w-400"><%= @user.age %></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Gender</p>
+                                        <h6 class="text-muted f-w-400"><%= @user.gender %></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Full Name</p>
+                                        <h6 class="text-muted f-w-400"><%= @user.first_name %><%= @user.last_name %></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Phone</p>
+                                        <h6 class="text-muted f-w-400"><%= @user.phone_no %></h6>
+                                    </div>
+                                </div>
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Contact Details</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Email</p>
+                                        <h6 class="text-muted f-w-400"><%= @user.email %></h6>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Address</p>
+                                        <h6 class="text-muted f-w-400"><%= @user.country %>, <%= @user.city %>, <%= @user.pin_code %>, <%= @user.street %></h6>
+                                    </div>
+                                </div> 
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Additional Details</h6>
+                                    <h6 class="text-muted f-w-400"><%= @user.additional_info %></h6>
+                                </div>        
+                            <% end %>
+                        </div>      
+                        <%= form_with model: @dashboard,local: true do |f| %>
+                            <h3 class="m-b-20 p-b-5 b-b-default f-w-600 text-center text-danger bg-red">Current Request</h3>
+                            <form>
+                                <div class="form-group row">
+                                    <%= f.label :usename,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :username, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= f.label :blood_group,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :blood_group, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= f.label :donated,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :donated, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= f.label :received,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :received, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= f.label :approved,class: "col-sm-2 col-form-label"%>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :approved, placeholder:"Username", class: "text-danger form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <%= link_to "Dashboard", dashboards_path(Current.user.id),class: "col-sm-2 col-form-label btn btn-outline-success" %>
+                                    <div class="col-sm-10">
+                                        <%= f.submit "Update",class: "  form-control btn btn-outline-danger" %>
+                                    </div>
+                                </div>
+                            </form>
+                        <% end %>
                     </div>
-                    <div class="form-row">
-                        <%= f.text_field :received, placeholder:"Age",class: "form-text" %>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row form-row-3">
-                            <%= f.text_field :approved, class: "form-text text-muted" %>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="text-lefts rounded">
-                        <%= link_to "Dashboard", dashboards_path(Current.user.id),class: "register_2 text-lefts rounded text-center text-color" %>
-                    </div>
-                    <div class="rounded register rights text-right">
-                        <%= f.submit "Update",class: "register text-color" %>
-                    </div>
-                    <br><br>
                 </div>
-            <% end %>
+            </div>
         </div>
     </div>
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<br><br><br><br><br><br>

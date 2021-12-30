@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_150554) do
+ActiveRecord::Schema.define(version: 2021_12_30_061636) do
 
   create_table "dashboards", force: :cascade do |t|
     t.string "username"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_150554) do
     t.integer "approved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "posts", force: :cascade do |t|

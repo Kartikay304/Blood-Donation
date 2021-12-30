@@ -14,26 +14,12 @@ class DashboardsController < ApplicationController
         @ab=0+Dashboard.where(blood_group: 'AB-', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'AB-', approved: '1').sum(:received)
         @O=0+Dashboard.where(blood_group: 'O+', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'O+', approved: '1').sum(:received)
         @o=0+Dashboard.where(blood_group: 'O-', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'O-', approved: '1').sum(:received)
-        @S=@A+@a+@B+@b+@AB+@ab+@O+@o
-    end
-
-    def edit
-        @dashboard = Dashboard.find(params[:id])
-    end
-
-    def update
-        @dashboard = Dashboard.find(params[:id])
-        if @dashboard.update(dashboard_params)
-            flash[:notice] = "Your account information as successfully updated"
-            render 'edit'
-        else
-            flash[:notice] = "Errorororo"
-            render 'edit'
-        end
+        @S=@A+@a+@B+@b+@AB+@ab+@O+@o+1
     end
 
     def create
-        @dashboard=Dashboard.new
+        @dashboard=Dashboard.new(dashboard_params)
+        @dashboard.user=Current.user
         @A=0+Dashboard.where(blood_group: 'A+', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'A+', approved: '1').sum(:received)
         @a=0+Dashboard.where(blood_group: 'A-', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'A-', approved: '1').sum(:received)
         @B=0+Dashboard.where(blood_group: 'B+', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'B+', approved: '1').sum(:received)
@@ -42,9 +28,7 @@ class DashboardsController < ApplicationController
         @ab=0+Dashboard.where(blood_group: 'AB-', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'AB-', approved: '1').sum(:received)
         @O=0+Dashboard.where(blood_group: 'O+', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'O+', approved: '1').sum(:received)
         @o=0+Dashboard.where(blood_group: 'O-', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'O-', approved: '1').sum(:received)
-        @S=@A+@a+@B+@b+@AB+@ab+@O+@o
-        @dashboard=Dashboard.new(dashboard_params)
-        @dashboard.save
+        @S=@A+@a+@B+@b+@AB+@ab+@O+@o+1
         if @dashboard.save
             if Current.user.admin?
             flash[:notice] = "Donation Added Successfully"
@@ -58,10 +42,27 @@ class DashboardsController < ApplicationController
         end
     end
 
+    def edit
+        @dashboard = Dashboard.find(params[:id])
+        @user = User.find(@dashboard.user_id)
+    end
+
+    def update
+        @user=User.new
+        @dashboard = Dashboard.find(params[:id])
+        if @dashboard.update(dashboard_params)
+            flash[:notice] = "Your account information as successfully updated"
+            render 'edit'
+        else
+            flash[:notice] = "Errorororo"
+            render 'edit'
+        end
+    end
+
     private
 
     def dashboard_params
-        params.require(:dashboard).permit(:username, :blood_group, :received, :donated, :approved, :camp)
+        params.require(:dashboard).permit(:username, :blood_group, :received, :donated, :approved, :camp , :user_id)
     end
 
 end

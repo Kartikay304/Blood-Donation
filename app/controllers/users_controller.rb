@@ -20,9 +20,10 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        session[:user_id] = @user.id
         if @user.save
             flash[:notice] = "Welcome #{@user.username} To GEHU Blood Donation Camp"
-            redirect_to login_path
+            redirect_to root_path
         else
             render 'signup'
         end
