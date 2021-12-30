@@ -31,14 +31,14 @@ class DashboardsController < ApplicationController
         @S=@A+@a+@B+@b+@AB+@ab+@O+@o+1
         if @dashboard.save
             if Current.user.admin?
-            flash[:notice] = "Donation Added Successfully"
-            redirect_to dashboard_path(Current.user.id)
+                flash[:notice] = "Donation Added Successfully"
             else 
                 flash[:notice] = "#{@dashboard.username}, your request send to admin for approval"
-                redirect_to dashboard_path(Current.user.id)
             end
+            redirect_to dashboard_path(Current.user.id)
         else 
             render 'index'
+            return
         end
     end
 
@@ -51,10 +51,16 @@ class DashboardsController < ApplicationController
         @user=User.new
         @dashboard = Dashboard.find(params[:id])
         if @dashboard.update(dashboard_params)
-            flash[:notice] = "Your account information as successfully updated"
-            render 'edit'
+            if Current.user.admin?
+                flash[:notice] = "Request Approved"
+                redirect_to dashboards_path
+            else 
+                flash[:notice] = "Your account information is successfully updated"
+                redirect_to dashboard_path(Current.user.id)
+                return
+            end
         else
-            flash[:notice] = "Errorororo"
+            flash[:notice] = "Something went wrong"
             render 'edit'
         end
     end

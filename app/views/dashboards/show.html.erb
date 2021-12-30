@@ -1,3 +1,6 @@
+<div class="container"> 
+   <%= render 'shared/messages'%>
+</div>
 <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE BLOOD DONATION REQUEST</h3><br>
     <div class="wrap-table100 col-xs col-sm col-md col-lg">
         <div class="table100 ver1 m-b-110 ">
@@ -101,7 +104,7 @@
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
-                        <% Dashboard.all.each do |t| if t.approved== 1%>
+                        <% Dashboard.order('updated_at DESC').each do |t| if t.approved== 1%>
                             <tr class="row100 body">
                                 <td class="cell100 column1"><%= t.username%></td>
                                 <td class="cell100 column2"><%= t.blood_group %></td>
