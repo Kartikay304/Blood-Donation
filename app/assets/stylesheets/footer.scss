@@ -83,3 +83,20 @@
         bottom:var(--distance, 10rem);
     }
 }
+
+@media (min-width: 1320px){
+ .bubbles{
+    margin-right:110px;
+ }
+}
+@media (max-width: 1326px){
+    .bubbles{
+       margin-right:90px;
+    }
+}
+
+@media (max-width: 518px){
+    .bubbles{
+       margin-right:60px;
+    }
+}

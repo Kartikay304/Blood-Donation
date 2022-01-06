@@ -327,6 +327,25 @@ body {
 	}
   }
 
+  .login-btn {
+	width: 232px;
+	height: 45px;
+	display: inline-block;
+	margin-left: 12px;
+	text-decoration: none;
+	cursor: pointer;
+	border: 2px solid #ff5959;
+	color: #343a40;
+	font-weight: 500;
+	transition: all .3s ease-in;
+  
+	&:hover {
+	  background: #ff5959;
+	  text-decoration: none;
+	  color: white;
+	}
+  }
+
   .home-btn:hover {
 	transition: all .3s ease-in;
 	background: #ff5959;
@@ -457,6 +476,12 @@ body {
 	}
 	.text-lefts,.text-rights{
 		width: 358px;
+	}
+}
+
+@media (max-width: 409px) {
+	.form-right,.image-login{
+		max-width:99.99% ;
 	}
 }
 
