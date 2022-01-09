@@ -31,3 +31,71 @@
 
 en:
   hello: "Hello world"
+  all_request: "All Requests"
+  request: "Request"
+  blood_group: "Blood group"
+  next: "Next"
+  home-post-next-section: "You can click anywhere on the window to go to next post."
+  create-post: "Create Post"
+  gehu-camp: "GEHU BLOOD DONATION CAMP"
+  login-request: "TO POST YOUR REQUEST PLEASE LOGIN"
+  login: "LOGIN"
+  plasma: "PLASMA"
+  plasma-about: "Plasma is a yellowish liquid in your blood that carries platelets, red blood cells and white blood cells around the body. Plasma makes up approximately 55% of your blood, and contains antibodies, known as immunoglobulins, which fight infection. These antibodies are made into medicines to help people with cancers, rare diseases, immune disorders and genetic conditions."
+  plasma-donate-heading: "WHO CAN DONATE PLASMA?"
+  plasma-donation-about: "Generally, plasma donors must be 18 years of age and weigh at least 110 pounds (50kg). All individuals must pass two separate medical examinations, a medical history screening and testing for transmissible viruses, before their donated plasma can be used to manufacture plasma protein therapies."
+  plasma-donation-heading: "PLASMA DONATION PROCESS"
+  plasma-donation-process-heading: "Plasma donation has four steps"
+  plasma-donation-process-li-1: "A vein is cannulated in one arm. Your blood is collected in a machine using a sterile, disposable system."
+  plasma-donation-process-li-2: "This machine separates the blood into cells and plasma."
+  plasma-donation-process-li-3: "The plasma is collected and stored."
+  plasma-donation-process-li-4: "The blood cells are returned to your body via the system."
+  plasma-donation-process-end: The procedure for collecting and returning (except for the venous cannulation, of course) is repeated a few times during a plasma donation session. This way, we collect slightly over half litre of plasma."
+  why-donate-blood: "WHY TO DONATE BLOOD"
+  why-donate-blood-para: "Giving blood saves lives. The blood you give is a lifeline in an emergency and for people who need long-term treatments.
+                From one unit of blood, red blood cells can be extracted and used to treat patients who lost blood due to trauma or those who are recovering from surgery. 
+                Plasma, the liquid part of blood, is typically administered to patients with requiring treatment to improve blood clotting. Platelets, a third component, 
+                clot the blood when cuts or other open wounds occur, and are often used in the treatment of patients with cancer or those undergoing organ transplants. 
+                Finally, cryoprecipitated anti-hemophilic factor (AHF) is also used for clotting factors."
+  who-can-donate-blood: "WHO CAN DONATE BLOOD"
+  who-can-donate-blood-para: "The criteria for donor selection varies from country to country, but blood can be donated by most people who are healthy and do not have an 
+                infection that can be transmitted through their blood.The age at which people are eligible to give blood varies, but is commonly between the ages of 17 and 65. Some countries accept 
+                donations from people from the age of 16 and extend the upper age limit beyond 65 years.Healthy adults can give blood regularly - at least twice a year."
+  who-can-donate-blood-end: "Who can receive your blood?"
+  donation-process-heading: "DONATION PROCESS"
+  donation-process-sub-heading-1: "Before you donate blood"
+  donation-process-sub-heading-1-li-1: "Check if you are able to donate blood or not."
+  donation-process-sub-heading-1-li-2: "Sign in to your online account and go to your dashboard, then fill the blood donation form and the request will send for approval to our admin team.After approval you will receive a 
+                confirmation email."
+  donation-process-sub-heading-2: "When you donate blood"
+  donation-process-sub-heading-3: "1. Welcome and preparation"
+  donation-process-sub-heading-4: "2. Health screening"
+  donation-process-sub-heading-5: "3. Your blood donation"
+  donation-process-para-1: "The whole process takes about an hour."
+  donation-process-para-2: "Remember to bring your completed donation safety check form with you, if you received one from us in the past.We will give you 500ml of fluid just before you give blood. 
+                Drinking this over about 5 minutes will help with your well-being during and after donation."
+  donation-process-para-3: "We make sure it is safe for you to donate, and that your blood donation is safe for a patient to receive.
+                We confirm your identity and ask you about the information on your donor health check form; a registered nurse may follow up if necessary.
+                We test a drop of blood from your finger to check the iron levels (haemoglobin) in your blood.
+                If you are not able to donate we will explain why, and may ask you to make another appointment.
+                If you are able to donate you will be asked to sit in a waiting area until you are called to a donation chair."
+  donation-process-para-4: "When you are comfortable on the chair we will ask you to confirm your name, address and date of birth.
+                We examine your arm and place a cuff on your arm to maintain a small amount of pressure during donation (this does not measure blood pressure).
+                We then examine your arm to find a suitable vein and clean it with an antiseptic sponge.
+                We will insert a needle in your arm which will collect your blood into a blood bag with your unique donor number.
+                You should not feel any discomfort or pain. If you do, tell a member of staff.
+                A scale weighs the blood and stops when you have donated 470ml (or just under a pint). This usually takes between 5-10 minutes.
+                The needle will be removed and a sterile dressing applied to your arm."
+  donation-process-end-heading: "How long does blood last after it's been donated?"
+  donation-process-end-heading-b-1: "Blood components have a limited shelf life:"
+  donation-process-end-heading-li-1: "Red blood cells can be stored for up to 35 days."
+  donation-process-end-heading-li-2: "Platelets can be stored for up to 7 days."
+  donation-process-end-heading-li-3: "Plasma can be stored for up to 3 years."
+  donation-process-end-heading-b-2: "We only collect what we need to avoid wasting any donations."
+  about-heading: "ABOUT"
+  about-heading-discription: "Learn about the people behind the project"
+  about-paragraph: "This website is a project developed by students at GEHU. It aims to provide a platform where people can  donate and receive blood. 
+                While users can also post requests for blood, they can also chat with each other in the provided chatrooms.This is an open-source project, we are actively working to add more features and make user interface as simple as possible. Checkout the contribute page for more detail."
+  about-sub-heading: "CORE TEAM"
+  about-sub-heading-description: "BloodDonation is lead by a team that is dedicated to innovation and excellence."
+  
