@@ -1,0 +1,131 @@
+<style>
+    td, th, button, .row-header {
+        font-weight: 1rem;
+    }
+    thead, tbody {
+        text-align: center;
+    }
+    
+    .fa-check {
+        color: #42b983;
+    }
+
+    .fa-times{
+        color: #f37380;
+    }
+
+    @media (min-width: 991px) {
+        table {
+            width: 80% !important;
+            max-width: 80% !important;
+        }
+    }
+</style>
+    <div class="row flex-column align-items-center justify-content-center" style="height: inherit;">  
+    <p><h5 class="text-center">Blood Recipient Compatibility</h5></p>
+    <table class="table border mt-2">
+        <thead>
+            <tr>
+                <th scope="col" ></th>
+                <th scope="col" >O-</th>
+                <th scope="col" >O+</th>
+                <th scope="col" >B-</th>
+                <th scope="col" >B+</th>
+                <th scope="col" >A-</th>
+                <th scope="col" >A+</th>
+                <th scope="col" >AB-</th>
+                <th scope="col" >AB+</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row" class="row-header">AB+</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">AB-</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">A+</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">A-</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">B+</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">B-</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">O+</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-header">O-</th>
+                    <td><i class="fas fa-check"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                </tr>
+            </tbody>
+        </thead>
+    </table>
+</div>

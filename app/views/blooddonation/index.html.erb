@@ -10,8 +10,7 @@
                   <div class="carousel-inner">
                      <div class="carousel-item active" data-bs-interval="2000">
                         <br>
-                        <h1 class="main-heading text-center"><%= t('request') %></h1>
-                        <br><br><br><br>
+                        <h1 class="main-heading text-center"><%= t('request') %></h1><br><br><br><br>
                      </div>
                      <% Post.all.order('created_at DESC').limit(50).each  do |post| %>
                      <div class="carousel-item">
@@ -33,8 +32,7 @@
                </div>
                <hr class="text-danger">
                <p class="text-center text-danger"><b><%= t('home-post-next-section') %></b></p>
-            </div>
-            <br>
+            </div><br>
             <div class="form-right">
                <% if Current.user%>
                <h2 class="text-center"><%= t('create-post') %></h2>
@@ -148,7 +146,7 @@
 <div class="container" id="home-about-section">
    <div class="row center-row">
       <div class="col-xs col-sm col-md col-lg text-center">
-         <h1 class="main-heading"><%= t("ABOUT") %></h1>
+         <h1 class="main-heading"><%= t("about-heading") %></h1>
          <p class="main-description"><%= t("about-heading-discription") %></p>
          <div class="centered-paragraph p-text"><%= t("about-paragraph") %></div>
          <h3 class="submain-heading"><%= t("about-sub-heading") %></h3>
@@ -166,8 +164,7 @@
          </div>
       </div>
    </div>
-</div>
-<br><br><br><br><br><br><br>
+</div><br><br><br><br><br><br><br>
 <script >
    window.onclick = function() {
        document.getElementById('clickButton').click();
