@@ -61,6 +61,15 @@ h6 {
     }
 }
 
+@media (max-width: 1200px){
+    .user-card-full {
+       margin-top: 100px;
+    }
+    .message-error-container {
+        margin-top: 40px;
+    }
+}
+
 .card-block {
     padding: 1.25rem
 }
