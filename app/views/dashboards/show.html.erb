@@ -1,3 +1,6 @@
+<div class="container">
+    <%= render 'shared/messages'%>
+</div>
 <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE BLOOD DONATION REQUEST</h3><br>
     <div class="wrap-table100 col-xs col-sm col-md col-lg">
         <div class="table100 ver1 m-b-110 ">
@@ -12,7 +15,7 @@
                             <th class="cell100 column5">Camp</th>
                             <th class="cell100 column6">Created-At</th>
                             <th class="cell100 column7">Updated-At</th>
-                            <th class="cell100 column8">EDIT</th>
+                            <th class="cell100 column8">View</th>
                         </tr>
                     </thead>
                 </table>
@@ -25,11 +28,11 @@
                                 <td class="cell100 column1"><%= t.username%></td>
                                 <td class="cell100 column2"><%= t.blood_group %></td>
                                 <td class="cell100 column3"><%= t.donated %> ml</td>
-                                <td class="cell100 column4"><%= t.approved %></td>
+                                <td class="cell100 column4"><i class="fas fa-times"></td>
                                 <td class="cell100 column5"><%= t.camp %></td>
                                 <td class="cell100 column6"><%= time_ago_in_words(t.created_at) %> ago</td>
                                 <td class="cell100 column7"><%= time_ago_in_words(t.updated_at) %> ago</td>
-                                <td class="cell100 column8"><%=  link_to 'Edit', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+                                <td class="cell100 column8"><%=  link_to 'View', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
                             </tr>
                         <% end %><% end %>
                     </tbody>
@@ -66,7 +69,7 @@
                                 <td class="cell100 column1"><%= t.username%></td>
                                 <td class="cell100 column2"><%= t.blood_group %></td>
                                 <td class="cell100 column3"><%= t.received %> ml</td>
-                                <td class="cell100 column4"><%= t.approved %></td>
+                                <td class="cell100 column4"><i class="fas fa-times"></td>
                                 <td class="cell100 column5"><%= t.camp %></td>
                                 <td class="cell100 column6"><%= time_ago_in_words(t.created_at) %> ago</td>
                                 <td class="cell100 column7"><%= time_ago_in_words(t.updated_at) %> ago</td>
@@ -107,7 +110,7 @@
                                 <td class="cell100 column2"><%= t.blood_group %></td>
                                 <td class="cell100 column3"><%= t.donated %> ml</td>
                                 <td class="cell100 column4"><%= t.received %> ml</td>
-                                <td class="cell100 column10"><%= t.approved %></td>
+                                <td class="cell100 column10"><i class="fas fa-check"></i></td>
                                 <td class="cell100 column11"><%= t.camp %></td>
                                 <td class="cell100 column12"><%= time_ago_in_words(t.created_at) %> ago</td>
                                 <td class="cell100 column9"><%= time_ago_in_words(t.updated_at) %> ago</td>
