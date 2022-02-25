@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 
 gem 'wdm', '>= 0.1.0'
-gem 'mailcatcher'
 #I18n
 gem 'rails-i18n'
 #execute sql
@@ -39,7 +38,7 @@ gem 'bootsnap', '>= 1.4.4'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  # gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
