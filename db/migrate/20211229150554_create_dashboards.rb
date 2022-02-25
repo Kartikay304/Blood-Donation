@@ -7,6 +7,7 @@ class CreateDashboards < ActiveRecord::Migration[6.1]
       t.integer :donated
       t.integer :received
       t.integer :approved
+      t.integer :*
       t.timestamps
     end
   end

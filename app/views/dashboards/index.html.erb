@@ -141,7 +141,7 @@
                         </div>
                         <% if Current.user.blood_group == 'A+' %>
                             <div class="form-row">
-                                <%= f.select :blood_group, ["A+","A+","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text " %>
+                                <%= f.select :blood_group, ["A+","A-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text " %>
                             </div>
                         <% end %>
                         <% if Current.user.blood_group == 'A-' %>
@@ -180,7 +180,7 @@
                             </div>
                         <% end %>
                         <div class="form-row">
-                            <%= f.text_field :received, placeholder: "Enter the required blood in ml", class: "form-text" %>
+                            <%= f.text_field :received, :value => 0, placeholder: "Enter the required blood in ml", class: "form-text" %>
                             <%= f.hidden_field  :donated, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                             <%= f.hidden_field  :approved, :value => 0, type: :hidden,class: "form-text text-secondary" %>
                             <%= f.hidden_field  :user_id, :value => Current.user.id, type: :hidden,class: "form-text text-secondary" %>

@@ -40,13 +40,12 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-2">
             <%= link_to "Dashboard", dashboard_path(Current.user.id), class: "dropdown-item" %>
-            <% if Current.user.admin %>
-             <a class="dropdown-item" href="/dashboards">Logs</a>
-            <%else%>
-              <a class="dropdown-item" href="#">Notifications</a>
-            <%end%>
+            <a class="dropdown-item" href="/dashboards">Logs</a>
             <div class="dropdown-divider"></div>
             <%= link_to "Logout", logout_path,class: "dropdown-item", method: :delete %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "English", { locale: :en },class: "dropdown-item"%>
+            <%= link_to "Hindi",{ locale: :hi },class: "dropdown-item" %>
           </div>
         </li>
       </div>

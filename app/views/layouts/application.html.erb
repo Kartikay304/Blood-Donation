@@ -29,11 +29,6 @@
   <body>
     <%= render 'layouts/header' %>
     <div class ="page-contents content" id="home">
-      <%= t('hello') %>
-      <p>
-        <%= link_to "English", { locale: :en }%>
-        <%= link_to "Hindi", { locale: :hi } %>
-      </p>
       <%= yield %>
       <a id="button"></a>
     </div>

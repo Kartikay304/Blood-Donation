@@ -9,41 +9,48 @@ class ReceivedValidator < ActiveModel::Validator
     @O=1+Dashboard.where(blood_group: 'O+', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'O+', approved: '1').sum(:received)
     @o=1+Dashboard.where(blood_group: 'O-', approved: '1').sum(:donated)-Dashboard.where(blood_group: 'O-', approved: '1').sum(:received)
     
-    if  record.received == nil
-      record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
+    if record.received.present?
+      if record.blood_group == 'A+'
+        if record.received > @A
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'A-'
+        if record.received > @a
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'B+'
+        if record.received > @B
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'B-'
+        if record.received > @b
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'AB+'
+        if record.received > @AB
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'AB-'
+        if record.received > @ab
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'O-'
+        if record.received > @O
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      elsif record.blood_group == 'O+'
+        if record.received > @o
+          record.errors.add( :*,"Blood Bank don't have the entered ml of Blood")
+        end
+      end
+    else
+      record.errors.add( :*,"Request can only be accept if entered ml of blood is more then 0")
     end
-    if record.blood_group== 'A+'
-      if record.received > @A
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'A-'
-      if record.received > @a
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'B+'
-      if record.received > @B
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'B-'
-      if record.received > @b
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'AB+'
-      if record.received > @AB
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'AB-'
-      if record.received > @ab
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'O-'
-      if record.received > @O
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
-    elsif record.blood_group== 'O+'
-      if record.received > @o
-        record.errors.add( :received,"Blood Bank don't have the reqired ml of Blood")
-      end
+    if Dashboard.exists?(user_id: Current.user.id) && record.received == 0
+      latest = Dashboard.where(user_id: Current.user.id).last.created_at
+      number_of_days = (Time.now - latest)/(60*60*24)
+      number_of_days <= 90
+      record.errors.add(:*," You can only donate blood once in a 90 day period")
     end
   end
 end

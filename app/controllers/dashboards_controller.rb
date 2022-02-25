@@ -31,9 +31,9 @@ class DashboardsController < ApplicationController
         @S=@A+@a+@B+@b+@AB+@ab+@O+@o+1
         if @dashboard.save
             if Current.user.admin?
-            flash[:notice] = "Donation Added Successfully"
-            redirect_to dashboard_path(Current.user.id)
-            else 
+                flash[:notice] = "Donation Added Successfully"
+                redirect_to dashboard_path(Current.user.id)
+            else
                 flash[:notice] = "#{@dashboard.username}, your request send to admin for approval"
                 redirect_to dashboard_path(Current.user.id)
             end

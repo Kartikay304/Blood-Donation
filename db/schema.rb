@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_12_30_061636) do
     t.integer "donated"
     t.integer "received"
     t.integer "approved"
+    t.integer "*"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
