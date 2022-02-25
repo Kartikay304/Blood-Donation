@@ -141,7 +141,7 @@
                         </div>
                         <% if Current.user.blood_group == 'A+' %>
                             <div class="form-row">
-                                <%= f.select :blood_group, ["A+","A+","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text " %>
+                                <%= f.select :blood_group, ["A+","A-","O+","O-"],{prompt: "Select Blood Group"}, class: "form-text " %>
                             </div>
                         <% end %>
                         <% if Current.user.blood_group == 'A-' %>

@@ -1,128 +1,237 @@
 <div class="container">
     <%= render 'shared/messages'%>
 </div>
-<div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE BLOOD DONATION REQUEST</h3><br>
-    <div class="wrap-table100 col-xs col-sm col-md col-lg">
-        <div class="table100 ver1 m-b-110 ">
-            <div class="table100-head">
-                <table>
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="cell100 column1">Username</th>
-                            <th class="cell100 column2">Blood-Group</th>
-                            <th class="cell100 column3">Blood-Donated</th>
-                            <th class="cell100 column4">Approve</th>
-                            <th class="cell100 column5">Camp</th>
-                            <th class="cell100 column6">Created-At</th>
-                            <th class="cell100 column7">Updated-At</th>
-                            <th class="cell100 column8">View</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="table100-body js-pscroll">
-                <table>
-                    <tbody>
-                        <% Dashboard.all.each do |t| if t.approved == 0 && t.received == 0%>
-                            <tr class="row100 body">
-                                <td class="cell100 column1"><%= t.username%></td>
-                                <td class="cell100 column2"><%= t.blood_group %></td>
-                                <td class="cell100 column3"><%= t.donated %> ml</td>
-                                <td class="cell100 column4"><i class="fas fa-times"></td>
-                                <td class="cell100 column5"><%= t.camp %></td>
-                                <td class="cell100 column6"><%= time_ago_in_words(t.created_at) %> ago</td>
-                                <td class="cell100 column7"><%= time_ago_in_words(t.updated_at) %> ago</td>
-                                <td class="cell100 column8"><%=  link_to 'View', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+<% if Current.user.admin == 1 %>
+    <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">PENDING BLOOD DONATION REQUESTS</h3><br>
+        <div class="wrap-table100 col-xs col-sm col-md col-lg">
+            <div class="table100 ver1 m-b-110 ">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Username</th>
+                                <th class="cell100 column2">Blood-Group</th>
+                                <th class="cell100 column3">Blood-Donated</th>
+                                <th class="cell100 column4">Status</th>
+                                <th class="cell100 column5">Camp</th>
+                                <th class="cell100 column6">Created-At</th>
+                                <th class="cell100 column8">View</th>
                             </tr>
-                        <% end %><% end %>
-                    </tbody>
-                </table>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <% Dashboard.all.each do |t| if t.approved == 0 && t.received == 0%>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"><%= t.username%></td>
+                                    <td class="cell100 column2"><%= t.blood_group %></td>
+                                    <td class="cell100 column3"><%= t.donated %> ml</td>
+                                    <td class="cell100 column4"><i class="fas fa-times"></td>
+                                    <td class="cell100 column5"><%= t.camp %></td>
+                                    <td class="cell100 column6"><%= t.created_at %></td>
+                                    <td class="cell100 column8"><%=  link_to 'View', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+                                </tr>
+                            <% end %><% end %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE BLOOD RECEIVED REQUEST</h3><br>
-    <div class="wrap-table100 col-xs col-sm col-md col-lg">
-        <div class="table100 ver1 m-b-110">
-            <div class="table100-head">
-                <table>
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="cell100 column1">Username</th>
-                            <th class="cell100 column2">Blood-Group</th>
-                            <th class="cell100 column3">Blood-Received</th>
-                            <th class="cell100 column4">Approve</th>
-                            <th class="cell100 column5">Camp</th>
-                            <th class="cell100 column6">Created-At</th>
-                            <th class="cell100 column7">Updated-At</th>
-                            <th class="cell100 column8">EDIT</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="table100-body js-pscroll">
-                <table>
-                    <tbody>
-                        <% Dashboard.all.each do |t| if (t.approved == 0 && t.donated == 0)%>
-                            <tr class="row100 body">
-                                <td class="cell100 column1"><%= t.username%></td>
-                                <td class="cell100 column2"><%= t.blood_group %></td>
-                                <td class="cell100 column3"><%= t.received %> ml</td>
-                                <td class="cell100 column4"><i class="fas fa-times"></td>
-                                <td class="cell100 column5"><%= t.camp %></td>
-                                <td class="cell100 column6"><%= time_ago_in_words(t.created_at) %> ago</td>
-                                <td class="cell100 column7"><%= time_ago_in_words(t.updated_at) %> ago</td>
-                                <td class="cell100 column8"><%=  link_to 'Edit', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+    <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">PENDING BLOOD RECEIVED REQUESTS</h3><br>
+        <div class="wrap-table100 col-xs col-sm col-md col-lg">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Username</th>
+                                <th class="cell100 column2">Blood-Group</th>
+                                <th class="cell100 column3">Blood-Received</th>
+                                <th class="cell100 column4">Status</th>
+                                <th class="cell100 column5">Camp</th>
+                                <th class="cell100 column6">Created-At</th>
+                                <th class="cell100 column8">View</th>
                             </tr>
-                        <% end %><% end %>
-                    </tbody>
-                </table>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <% Dashboard.all.each do |t| if (t.approved == 0 && t.donated == 0)%>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"><%= t.username%></td>
+                                    <td class="cell100 column2"><%= t.blood_group %></td>
+                                    <td class="cell100 column3"><%= t.received %> ml</td>
+                                    <td class="cell100 column4"><i class="fas fa-times"></td>
+                                    <td class="cell100 column5"><%= t.camp %></td>
+                                    <td class="cell100 column6"><%= t.created_at %></td>
+                                    <td class="cell100 column8"><%=  link_to 'View', edit_dashboard_path(t.id), class: "btn btn-outline-danger" %></td>
+                                </tr>
+                            <% end %><% end %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE LOGS</h3><br>
-    <div class="wrap-table100 col-xs col-sm col-md col-lg">
-        <div class="table100 ver1 m-b-110">
-            <div class="table100-head">
-                <table>
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="cell100 column1">Username</th>
-                            <th class="cell100 column2">Blood-Group</th>
-                            <th class="cell100 column3">Blood-Donated</th>
-                            <th class="cell100 column4">Blood-Received</th>
-                            <th class="cell100 column10">Approve</th>
-                            <th class="cell100 column11">Camp</th>
-                            <th class="cell100 column12">Created-At</th>
-                            <th class="cell100 column9">Updated-At</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="table100-body js-pscroll">
-                <table>
-                    <tbody>
-                        <% Dashboard.all.each do |t| if t.approved== 1%>
-                            <tr class="row100 body">
-                                <td class="cell100 column1"><%= t.username%></td>
-                                <td class="cell100 column2"><%= t.blood_group %></td>
-                                <td class="cell100 column3"><%= t.donated %> ml</td>
-                                <td class="cell100 column4"><%= t.received %> ml</td>
-                                <td class="cell100 column10"><i class="fas fa-check"></i></td>
-                                <td class="cell100 column11"><%= t.camp %></td>
-                                <td class="cell100 column12"><%= time_ago_in_words(t.created_at) %> ago</td>
-                                <td class="cell100 column9"><%= time_ago_in_words(t.updated_at) %> ago</td>
+    <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">APPROVE LOGS</h3><br>
+        <div class="wrap-table100 col-xs col-sm col-md col-lg">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Username</th>
+                                <th class="cell100 column2">Blood-Group</th>
+                                <th class="cell100 column3">Blood-Donated</th>
+                                <th class="cell100 column4">Blood-Received</th>
+                                <th class="cell100 column10">Status</th>
+                                <th class="cell100 column11">Camp</th>
+                                <th class="cell100 column12">Created-At</th>
+                                <th class="cell100 column9">Updated-At</th>
                             </tr>
-                        <% end %><% end %>
-                    </tbody>
-                </table>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <% Dashboard.all.each do |t| if t.approved== 1%>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"><%= t.username%></td>
+                                    <td class="cell100 column2"><%= t.blood_group %></td>
+                                    <td class="cell100 column3"><%= t.donated %> ml</td>
+                                    <td class="cell100 column4"><%= t.received %> ml</td>
+                                    <td class="cell100 column10"><i class="fas fa-check"></i></td>
+                                    <td class="cell100 column11"><%= t.camp %></td>
+                                    <td class="cell100 column12"><%= t.created_at %></td>
+                                    <td class="cell100 column9"><%= t.updated_at %></td>
+                                </tr>
+                            <% end %><% end %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-                                        
+<% else %>
+    <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">MY PENDING BLOOD DONATION REQUESTS</h3><br>
+        <div class="wrap-table100 col-xs col-sm col-md col-lg">
+            <div class="table100 ver1 m-b-110 ">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Username</th>
+                                <th class="cell100 column2">Blood-Group</th>
+                                <th class="cell100 column3">Blood-Donated</th>
+                                <th class="cell100 column4">Status</th>
+                                <th class="cell100 column5">Camp</th>
+                                <th class="cell100 column6">Created-At</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <% Dashboard.all.where(username: Current.user.username).each do |t| if t.approved == 0 && t.received == 0%>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"><%= t.username%></td>
+                                    <td class="cell100 column2"><%= t.blood_group %></td>
+                                    <td class="cell100 column3"><%= t.donated %> ml</td>
+                                    <td class="cell100 column4"><i class="fas fa-times"></td>
+                                    <td class="cell100 column5"><%= t.camp %></td>
+                                    <td class="cell100 column6"><%= t.created_at %></td>
+                                </tr>
+                            <% end %><% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">MY PENDING BLOOD RECEIVED REQUESTS</h3><br>
+        <div class="wrap-table100 col-xs col-sm col-md col-lg">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Username</th>
+                                <th class="cell100 column2">Blood-Group</th>
+                                <th class="cell100 column3">Blood-Received</th>
+                                <th class="cell100 column4">Status</th>
+                                <th class="cell100 column5">Camp</th>
+                                <th class="cell100 column6">Created-At</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <% Dashboard.all.where(username: Current.user.username).each do |t| if (t.approved == 0 && t.donated == 0)%>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"><%= t.username%></td>
+                                    <td class="cell100 column2"><%= t.blood_group %></td>
+                                    <td class="cell100 column3"><%= t.received %> ml</td>
+                                    <td class="cell100 column4"><i class="fas fa-times"></td>
+                                    <td class="cell100 column5"><%= t.camp %></td>
+                                    <td class="cell100 column6"><%= t.created_at %></td>
+                                </tr>
+                            <% end %><% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="limiter col-xs col-sm col-md col-lg"><h3 class="submain-heading text-center">MY APPROVED REQUESTS</h3><br>
+        <div class="wrap-table100 col-xs col-sm col-md col-lg">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Username</th>
+                                <th class="cell100 column2">Blood-Group</th>
+                                <th class="cell100 column3">Blood-Donated</th>
+                                <th class="cell100 column4">Blood-Received</th>
+                                <th class="cell100 column10">Status</th>
+                                <th class="cell100 column11">Camp</th>
+                                <th class="cell100 column12">Created-At</th>
+                                <th class="cell100 column9">Approved-At</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <%  Dashboard.all.where(username: Current.user.username).each do |t| if t.approved == 1%>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1"><%= t.username%></td>
+                                    <td class="cell100 column2"><%= t.blood_group %></td>
+                                    <td class="cell100 column3"><%= t.donated %> ml</td>
+                                    <td class="cell100 column4"><%= t.received %> ml</td>
+                                    <td class="cell100 column10"><i class="fas fa-check"></i></td>
+                                    <td class="cell100 column11"><%= t.camp %></td>
+                                    <td class="cell100 column12"><%= t.created_at %></td>
+                                    <td class="cell100 column9"><%= t.updated_at %></td>
+                                </tr>
+                            <% end %><% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>                                    
 <br><br><br><br><br><br><br><br>
 <script>
     $('.js-pscroll').each(function(){
