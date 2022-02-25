@@ -61,31 +61,26 @@
                                 <div class="form-group row">
                                     <%= f.label :blood_group,class: "col-sm-2 col-form-label"%>
                                     <div class="col-sm-10">
-                                        <%= f.text_field :blood_group, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                        <%= f.text_field :blood_group, placeholder:"Blood group", disabled: :true, class: "text-muted form-control" %>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <%= f.label :donated,class: "col-sm-2 col-form-label"%>
                                     <div class="col-sm-10">
-                                        <%= f.text_field :donated, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                        <%= f.text_field :donated, placeholder:"Donated", disabled: :true, class: "text-muted form-control" %>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <%= f.label :received,class: "col-sm-2 col-form-label"%>
                                     <div class="col-sm-10">
-                                        <%= f.text_field :received, placeholder:"Username", disabled: :true, class: "text-muted form-control" %>
+                                        <%= f.text_field :received, placeholder:"Received", disabled: :true, class: "text-muted form-control" %>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <%= f.label :approved,class: "col-sm-2 col-form-label"%>
-                                    <div class="col-sm-10">
-                                        <%= f.text_field :approved, placeholder:"Username", class: "text-danger form-control" %>
-                                    </div>
-                                </div>
+                                <%= f.hidden_field :approved, placeholder:"Approved", value: 1, type: :hidden, class: "text-danger form-control" %>
                                 <div class="form-group row">
                                     <%= link_to "Dashboard", dashboards_path(Current.user.id),class: "col-sm-2 col-form-label btn btn-outline-success" %>
                                     <div class="col-sm-10">
-                                        <%= f.submit "Update",class: "  form-control btn btn-outline-danger" %>
+                                        <%= f.submit "Approve",class: "  form-control btn btn-outline-danger" %>
                                     </div>
                                 </div>
                             </form>

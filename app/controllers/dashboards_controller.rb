@@ -51,10 +51,10 @@ class DashboardsController < ApplicationController
         @user=User.new
         @dashboard = Dashboard.find(params[:id])
         if @dashboard.update(dashboard_params)
-            flash[:notice] = "Your account information as successfully updated"
-            render 'edit'
+            flash[:notice] = "User Request Approved"
+            render 'show'
         else
-            flash[:notice] = "Errorororo"
+            flash[:notice] = "Unknown Error Detected"
             render 'edit'
         end
     end

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'wdm', '>= 0.1.0'
+gem 'mailcatcher'
 #I18n
 gem 'rails-i18n'
 #execute sql
