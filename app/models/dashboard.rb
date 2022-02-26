@@ -50,7 +50,11 @@ class ReceivedValidator < ActiveModel::Validator
       latest = Dashboard.where(user_id: Current.user.id).last.created_at
       number_of_days = (Time.now - latest)/(60*60*24)
       number_of_days <= 90
-      record.errors.add(:*," You can only donate blood once in a 90 day period")
+      if Current.user.gender == "Male"
+        record.errors.add(:*," You can only donate blood once in 3 month period")
+      else
+        record.errors.add(:*," You can only donate blood once in 4 month period")
+      end
     end
   end
 end
